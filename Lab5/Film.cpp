@@ -19,12 +19,12 @@ Film::Film(string titel, string genre, int erscheinungsjahr, int likes, string t
 string Film::toString()
 {
 	string String;
-	String = " Titel: " + this->titel + " Genre: " + this->genre + "Erscheinungsjahr: " ;
+	String = "Titel: " + this->titel + "  Genre: " + this->genre + "  Erscheinungsjahr: " ;
 	string jahr = to_string(this->erscheinungsjahr);
 	String += jahr;
 	string likes = to_string(this->likes);
-	String += " Anzahl Likes: " + likes;
-	String += " Tralier: " + this->trailer;
+	String += "  Anzahl Likes: " + likes;
+	String += "  Tralier: " + this->trailer;
 	return String;
 }
 
