@@ -30,18 +30,31 @@ void ControllerAdministrator::add()
 
 void ControllerAdministrator::deletee()
 {
+	Validation v;
+
 	cout << "Titel des Films fur Loschen:\n";
 	string titel;
 	cin >> titel;
+	while (!v.validate_titel(titel))
+	{
+		cout << "Kein Film mit dieses Titel\n";
+		cin >> titel;
+	}
 	delete_film_repo(titel);
 	cout << "Film geloschen\n";
 }
 
 void ControllerAdministrator::edit_film_info()
 {
+	Validation v;
 	cout << "Titel des Films zu modifizieren\n";
 	string titel;
 	cin >> titel;
+	while (!v.validate_titel(titel))
+	{
+		cout << "Kein Film mit dieses Titel\n";
+		cin >> titel;
+	}
 
 	cout << "Neues Genre:\n";
 	string genre;

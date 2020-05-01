@@ -1,4 +1,5 @@
 #include "Repository.h"
+#include "Validation.h"
 #include <vector>
 #include <iostream>
 using namespace std;
@@ -71,7 +72,6 @@ bool Repository::update_film(string titel, string genre, int jahr, int likes, st
 
 vector<Film> Repository::nach_genre_anzeigen(string genre)
 {
-	//zehn_eintrage();
 	if (genre == "")
 		return movies;
 	vector<Film> aux;
@@ -114,12 +114,6 @@ void Repository::zehn_eintrage()
 	f5.set_likes(2055);
 	f5.set_trailer("https://www.youtube.com/watch?v=o2AsIXSh2xo");
 	add_film(f5);
-}
-
-void Repository::afisare_filme()
-{
-	for (int i = 0; i < movies.size(); i++)
-		cout << movies[i].toString() << endl;
 }
 
 void Repository::update_likes(Film f, int likes)

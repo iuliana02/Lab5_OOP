@@ -146,6 +146,7 @@
     <ClCompile Include="UIAdministrator.cpp" />
     <ClCompile Include="UIBenutzer.cpp" />
     <ClCompile Include="UIcomun.cpp" />
+    <ClCompile Include="Validation.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ControllerAdministrator.h" />
@@ -155,6 +156,7 @@
     <ClInclude Include="UIAdministrator.h" />
     <ClInclude Include="UIBenutzer.h" />
     <ClInclude Include="UIcomun.h" />
+    <ClInclude Include="Validation.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
