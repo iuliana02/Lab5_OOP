@@ -1,5 +1,37 @@
 #pragma once
-class ControllerAdministrator
+#include "Repository.h"
+class ControllerAdministrator : public Repository
 {
+private:
+	/// <summary>	The watchliste. </summary>
+	vector<Film> watchliste;
+	vector<Film> movies;
+	Repository rep;
+	//vector<Film> movies;
+
+public:
+	////////////////////////////////////////////////////////////////////////////////////////////////////
+	/// <summary>	Default constructor. </summary>
+	///
+	/// <remarks>	Popai, 23/04/2020. </remarks>
+	////////////////////////////////////////////////////////////////////////////////////////////////////
+	ControllerAdministrator();
+
+	////////////////////////////////////////////////////////////////////////////////////////////////////
+	/// <summary>	Destructor. </summary>
+	///
+	/// <remarks>	Popai, 23/04/2020. </remarks>
+	////////////////////////////////////////////////////////////////////////////////////////////////////
+	~ControllerAdministrator();
+
+	bool search(Film f);
+
+	void add_film(Film f);
+
+	void delete_film(Film f);
+
+	void edit_film_info(Film& f);
+
+	void show_film();
 };
 
