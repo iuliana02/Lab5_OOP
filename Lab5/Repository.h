@@ -5,11 +5,14 @@
 
 class Repository
 {
-private:
-	vector<Film> movies;
-	//vector<Film> watchliste;
+	friend class Film;
+
+//protected:
 
 public:
+	vector<Film> movies;
+	vector<Film> watchliste;
+
 	Repository();
 
 	////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -30,7 +33,7 @@ public:
 	///
 	/// <returns>	True if it succeeds, false if it fails. </returns>
 	////////////////////////////////////////////////////////////////////////////////////////////////////
-	vector<Film> delete_film(vector<Film> aux, string titel);
+	vector<Film> delete_film_watchliste(vector<Film> aux, string titel);
 
 	////////////////////////////////////////////////////////////////////////////////////////////////////
 	/// <summary>	Updates the film described by film. </summary>
@@ -41,7 +44,7 @@ public:
 	///
 	/// <returns>	True if it succeeds, false if it fails. </returns>
 	////////////////////////////////////////////////////////////////////////////////////////////////////
-	bool update_film(Film film, string genre, int jahr, int likes, string trailer);
+	bool update_film(string titel, string genre, int jahr, int likes, string trailer);
 
 	////////////////////////////////////////////////////////////////////////////////////////////////////
 	/// <summary>	Genres. </summary>
@@ -85,5 +88,6 @@ public:
 	////////////////////////////////////////////////////////////////////////////////////////////////////
 	void update_likes(Film f, int likes);
 
+	vector<Film> delete_film_repo(string titel);
 };
 

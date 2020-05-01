@@ -1,19 +1,61 @@
 #include "UIAdministrator.h"
-#include"ControllerAdministrator.h"
+//#include"ControllerAdministrator.h"
 #include<iostream>
 
-UIAdministrator::UIAdministrator() {}
+UIAdministrator::UIAdministrator() {
+	//repo.zehn_eintrage();
+}
 
 void UIAdministrator::meniu()
 {
 	cout << "\t Administratormodus \n\n"; 
-	cout << "1.Fügen einen Film hinzu\n";
+	cout << "1.Fugen einen Film hinzu\n";
 	cout << "2.Loschen einen Film\n";
 	cout << "3.Beartbeiten die Informationen eines Film\n";
-	cout << "4.Shoe database\n";
+	cout << "4.Liste der Filme ansehen\n";
 	cout << "0.Exit\n\n";
 }
 
+void UIAdministrator::optiuni()
+{
+	UIcomun ui;
+	ControllerAdministrator ctrl;
+	while (true)
+	{
+		meniu();
+
+		int optiune;
+		cout << "Wahlen sie eine Option\n";
+		cin >> optiune;
+		switch (optiune)
+		{
+		default:
+			return;
+		case 1:
+		{
+			ctrl.add();
+			break;
+		}
+		case 2:
+		{
+			ctrl.deletee();
+			break;
+		}
+		case 3:
+		{
+			ctrl.edit_film_info();
+			break;
+		}
+		case 4:
+		{
+			ctrl.show_filme();
+			break;
+		}
+		}
+	}
+}
+
+/*
 void UIAdministrator::optiuni()
 {
 	ControllerAdministrator ctrl;
@@ -105,3 +147,4 @@ void UIAdministrator::optiuni()
 		
 	}
 }
+*/

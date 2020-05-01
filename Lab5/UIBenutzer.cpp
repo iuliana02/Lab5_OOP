@@ -1,7 +1,9 @@
 #include "UIBenutzer.h"
 #include <iostream>
 
-UIBenutzer::UIBenutzer() {}
+UIBenutzer::UIBenutzer() {
+	//repo.zehn_eintrage();
+}
 
 void UIBenutzer::meniu()
 {
@@ -14,6 +16,7 @@ void UIBenutzer::meniu()
 
 void UIBenutzer::optiuni()
 {
+	UIcomun ui;
 	ControllerBenutzer ctrl;
 	while (true)
 	{
@@ -24,7 +27,7 @@ void UIBenutzer::optiuni()
 		cin >> optiune;
 		switch (optiune)
 		{
-		case 0:
+		default:
 			return;
 
 		case 1:

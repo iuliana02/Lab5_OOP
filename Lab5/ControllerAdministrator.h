@@ -2,11 +2,12 @@
 #include "Repository.h"
 class ControllerAdministrator : public Repository
 {
-private:
+//private:
+//	Repository repo;
 	/// <summary>	The watchliste. </summary>
-	vector<Film> watchliste;
-	vector<Film> movies;
-	Repository rep;
+	//vector<Film> watchliste;
+	//vector<Film> movies;
+	//Repository rep;
 	//vector<Film> movies;
 
 public:
@@ -24,14 +25,14 @@ public:
 	////////////////////////////////////////////////////////////////////////////////////////////////////
 	~ControllerAdministrator();
 
-	bool search(Film f);
+//	bool search(Film f);
 
-	void add_film(Film f);
+	void add();
 
-	void delete_film(Film f);
+	void deletee();
 
-	void edit_film_info(Film& f);
+	void edit_film_info();
 
-	void show_film();
+	void show_filme();
 };
 

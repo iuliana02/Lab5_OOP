@@ -1,11 +1,14 @@
-#include "ControllerAdministrator.h"
-#include "ControllerBenutzer.h"
-#include "UIBenutzer.h"
+
+#include "UIcomun.h"
 #include <iostream>
+
+
 
 int main()
 {
-	UIBenutzer ui;
-	ui.optiuni();
+	UIcomun ui;
+	ui.menu();
+
+
 	return 0;
 }

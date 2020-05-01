@@ -24,7 +24,7 @@ string Film::toString()
 	String += jahr;
 	string likes = to_string(this->likes);
 	String += "  Anzahl Likes: " + likes;
-	String += "  Tralier: " + this->trailer;
+	String += "\n\tTralier: " + this->trailer + "\n";
 	return String;
 }
 

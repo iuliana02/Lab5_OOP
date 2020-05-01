@@ -49,7 +49,7 @@ void ControllerBenutzer::remove_film()
 	cin >> a;
 	Film film = get_film(watchliste, a);
 
-	vector<Film> sters = delete_film(watchliste,a);
+	vector<Film> sters = delete_film_watchliste(watchliste,a);
 
 	cout << "Wollen Sie den geloschten Film bewerten? Like->1\n";
 	string b;

@@ -3,7 +3,9 @@
 #include <iostream>
 using namespace std;
 
-Repository::Repository() {}
+Repository::Repository() {
+	zehn_eintrage();
+}
 
 void Repository::add_film(Film film)
 {
@@ -17,7 +19,21 @@ void Repository::add_film(Film film)
 	movies.push_back(film);
 }
 
-vector<Film> Repository::delete_film(vector<Film> aux,string titel)
+vector <Film> Repository::delete_film_repo(string titel)
+{
+	vector<Film> sters;
+	for (int i = 0; i < movies.size(); i++)
+	{
+		if (movies[i].get_titel() != titel)
+		{
+			sters.push_back(movies[i]);
+		}
+	}
+	movies = sters;
+	return sters;
+}
+
+vector<Film> Repository::delete_film_watchliste(vector<Film> aux,string titel)
 {
 	vector<Film> sters;
 	for (int i = 0; i < aux.size(); i++)
@@ -37,11 +53,11 @@ Film Repository::get_film(vector<Film> aux, string titel)
 			return aux[i];
 }
 
-bool Repository::update_film(Film film, string genre, int jahr, int likes, string trailer)
+bool Repository::update_film(string titel, string genre, int jahr, int likes, string trailer)
 {
 	for (int i = 0; i < movies.size(); i++)
 	{
-		if (movies[i].get_titel() == film.get_titel())
+		if (movies[i].get_titel() == titel)
 		{
 			movies[i].set_genre(genre);
 			movies[i].set_erscheinungsjahr(jahr);
@@ -55,7 +71,7 @@ bool Repository::update_film(Film film, string genre, int jahr, int likes, strin
 
 vector<Film> Repository::nach_genre_anzeigen(string genre)
 {
-	zehn_eintrage();
+	//zehn_eintrage();
 	if (genre == "")
 		return movies;
 	vector<Film> aux;
@@ -75,12 +91,29 @@ void Repository::zehn_eintrage()
 	Film f2 = Film("The Pianist", "Drama", 2002, 890, "https://www.youtube.com/watch?v=BFwGqLa_oAo");
 	add_film(f2);
 
-	Film f3 = Film("Focus", "Comedie", 2015, 1277, "https://www.youtube.com/watch?v=MxCRgtdAuBo");
+	Film f3;
+	f3.set_titel("Focus");
+	f3.set_genre("Comedie");
+	f3.set_erscheinungsjahr(2015);
+	f3.set_likes(1277);
+	f3.set_trailer("https://www.youtube.com/watch?v=MxCRgtdAuBo");
 	add_film(f3);
 
-	Film f4 = Film("The longest ride", "Romance", 2015, 1600, "https://www.youtube.com/watch?v=FUS_Q7FsfqU");
+	Film f4;
+	f4.set_titel("The longest ride");
+	f4.set_genre("Romance");
+	f4.set_erscheinungsjahr(2015);
+	f4.set_likes(1600);
+	f4.set_trailer("https://www.youtube.com/watch?v=FUS_Q7FsfqU");
 	add_film(f4);
 
+	Film f5;
+	f5.set_titel("Bird Box");
+	f5.set_genre("Horror");
+	f5.set_erscheinungsjahr(2018);
+	f5.set_likes(2055);
+	f5.set_trailer("https://www.youtube.com/watch?v=o2AsIXSh2xo");
+	add_film(f5);
 }
 
 void Repository::afisare_filme()

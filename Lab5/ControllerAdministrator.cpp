@@ -4,79 +4,73 @@
 #include<iostream>
 using namespace std;
 
-ControllerAdministrator::ControllerAdministrator(){
-	rep = Repository();
-}
+ControllerAdministrator::ControllerAdministrator() : Repository() {}
 
-ControllerAdministrator::~ControllerAdministrator() {}
-
-bool ControllerAdministrator::search(Film f)
+void ControllerAdministrator::add()
 {
-	for (int i = 0; i < movies.size(); i++)
-	{
-		if (movies[i].get_titel() == f.get_titel())
-		{
-			return true;
-		}
-	}
-	return false;
+	cout << "Neues Titel:\n";
+	string titel;
+	cin >> titel;
+	cout << "Genre:\n";
+	string genre;
+	cin >> genre;
+	cout << "Erscheinungsjahr:\n";
+	int jahr;
+	cin >> jahr;
+	cout << "Anzahl Likes\n";
+	int likes;
+	cin >> likes;
+	cout << "URL zum Trailer:\n";
+	string trailer;
+	cin >> trailer;
+	Film neuesFilm = Film(titel, genre, jahr, likes, trailer);
+	add_film(neuesFilm);
+	cout << "Film eingefugt\n";
 }
 
-void ControllerAdministrator::add_film(Film f)
+void ControllerAdministrator::deletee()
 {
-	if (!search(f))
-	{
-		movies.push_back(f);
-	}
-	else
-	{
-		cout << "Filmul exista deja!\n";
-	}
+	cout << "Titel des Films fur Loschen:\n";
+	string titel;
+	cin >> titel;
+	delete_film_repo(titel);
+	cout << "Film geloschen\n";
 }
 
-void ControllerAdministrator::delete_film(Film f)
+void ControllerAdministrator::edit_film_info()
 {
-	if (search(f))
-	{
-		for (int i = 0; i < movies.size(); i++)
-		{
-			if (movies[i].get_titel() == f.get_titel())
-			{
-				movies.erase(movies.begin() + i);
-				return;
-			}
-		}
-	}
-	else
-	{
-		cout << "Filmul nu exista!\n";
-	}
+	cout << "Titel des Films zu modifizieren\n";
+	string titel;
+	cin >> titel;
+
+	cout << "Neues Genre:\n";
+	string genre;
+	cin >> genre;
+	cout << "Neues Erscheinungsjahr:\n";
+	int jahr;
+	cin >> jahr;
+	cout << "Neue Anzahl von Likes:\n";
+	int likes;
+	cin >> likes;
+	cout << "Neues URL fur Trailer:\n";
+	string trailer;
+	cin >> trailer;
+
+	update_film(titel, genre, jahr, likes, trailer);
+
+	cout << "Film modifiziert!\n";
 }
 
-void ControllerAdministrator::edit_film_info(Film& f)
-{
 
-	if (search(f))
-	{
-		for (int i = 0; i < movies.size(); i++)
-		{
-			if (movies.at(i).get_titel() == f.get_titel() && movies.at(i).get_genre()==f.get_genre() && movies.at(i).get_erscheinungsjahr()==f.get_erscheinungsjahr() && movies.at(i).get_likes()==f.get_likes() && movies.at(i).get_trailer()==f.get_trailer())
-			{
-				update_film(movies.at(i));
-				return;
-			}
-		}
-	}
-	else
-	{
-		cout << "Filmul nu exista!\n";
-	}
-}
-
-void ControllerAdministrator::show_film()
+void ControllerAdministrator::show_filme()
 {
 	if (movies.size() == 0)
 		cout << "Nu exista filme!\n";
 	for (int i = 0; i < movies.size(); i++)
+	{
 		cout << movies[i].toString() << endl;
+	}
 }
+
+ControllerAdministrator::~ControllerAdministrator() {}
+

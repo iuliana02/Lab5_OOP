@@ -4,8 +4,9 @@
 class ControllerBenutzer : public Repository
 {
 private:
-	/// <summary>	The watchliste. </summary>
-	vector<Film> watchliste;
+	// <summary>	The watchliste. </summary>
+	//vector<Film> watchliste;
+	Repository repo;
 
 public:
 

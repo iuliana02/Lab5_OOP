@@ -1,5 +1,6 @@
 #pragma once
 #include "ControllerBenutzer.h"
+#include "UIcomun.h"
 
 class UIBenutzer 
 {
