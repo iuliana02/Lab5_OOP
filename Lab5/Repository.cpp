@@ -114,6 +114,46 @@ void Repository::zehn_eintrage()
 	f5.set_likes(2055);
 	f5.set_trailer("https://www.youtube.com/watch?v=o2AsIXSh2xo");
 	add_film(f5);
+
+	Film f6;
+	f6.set_titel("Closer");
+	f6.set_genre("Romance");
+	f6.set_erscheinungsjahr(2004);
+	f6.set_likes(2235);
+	f6.set_trailer("https://www.youtube.com/watch?v=MdCc_NBlQC4");
+	add_film(f6);
+
+	Film f7;
+	f7.set_titel("One Day");
+	f7.set_genre("Romance");
+	f7.set_erscheinungsjahr(2011);
+	f7.set_likes(1897);
+	f7.set_trailer("https://www.youtube.com/watch?v=zVuuooZqVaU&t=101s");
+	add_film(f7);
+
+	Film f8;
+	f8.set_titel("Ready Or Not");
+	f8.set_genre("Horror");
+	f8.set_erscheinungsjahr(2019);
+	f8.set_likes(1009);
+	f8.set_trailer("https://www.youtube.com/watch?v=ZtYTwUxhAoI");
+	add_film(f8);
+
+	Film f9;
+	f9.set_titel("The Orphanage");
+	f9.set_genre("Horror");
+	f9.set_erscheinungsjahr(2007);
+	f9.set_likes(2089);
+	f9.set_trailer("https://www.youtube.com/watch?v=UkuKtS-N1rM");
+	add_film(f9);
+
+	Film f10;
+	f10.set_titel("Over Her Dead Body");
+	f10.set_genre("Comedie");
+	f10.set_erscheinungsjahr(2008);
+	f10.set_likes(1276);
+	f10.set_trailer("https://www.youtube.com/watch?v=8NR5RA75yDU");
+	add_film(f10);
 }
 
 void Repository::update_likes(Film f, int likes)
