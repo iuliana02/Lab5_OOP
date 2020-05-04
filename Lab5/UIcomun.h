@@ -5,10 +5,14 @@
 
 class UIcomun
 {
-public:
+	friend class UIAdministrator;
+	friend class UIBenutzer;
 
+private:
 	Repository repo;
-	//Controller ctrl;
+
+
+public:
 
 	UIcomun();
 

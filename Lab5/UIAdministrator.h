@@ -27,8 +27,9 @@ public:
 	/// <remarks>	Popai, 24/04/2020. </remarks>
 	////////////////////////////////////////////////////////////////////////////////////////////////////
 	void optiuni();
-//private:
-//	ControllerAdministrator contr;
+
+private:
+	ControllerAdministrator ctrl;
 
 };
 

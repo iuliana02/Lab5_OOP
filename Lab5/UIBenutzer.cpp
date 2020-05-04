@@ -2,7 +2,7 @@
 #include <iostream>
 
 UIBenutzer::UIBenutzer() {
-	//repo.zehn_eintrage();
+	UIcomun ui;
 }
 
 void UIBenutzer::meniu()
@@ -17,7 +17,7 @@ void UIBenutzer::meniu()
 void UIBenutzer::optiuni()
 {
 	UIcomun ui;
-	ControllerBenutzer ctrl;
+	//ControllerBenutzer ctrl;
 	while (true)
 	{
 		meniu();
@@ -27,8 +27,11 @@ void UIBenutzer::optiuni()
 		cin >> optiune;
 		switch (optiune)
 		{
-		default:
-			return;
+		case 0:
+		{
+			ui.menu();
+			break;
+		}
 
 		case 1:
 		{

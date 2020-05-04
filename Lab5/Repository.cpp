@@ -4,6 +4,7 @@
 #include <iostream>
 using namespace std;
 
+
 Repository::Repository() {
 	zehn_eintrage();
 }
@@ -162,4 +163,9 @@ void Repository::update_likes(Film f, int likes)
 	for (int i = 0; i < movies.size(); i++)
 		if (movies[i].get_titel() == f.get_titel())
 			movies[i].set_likes(likes);
+}
+
+int Repository::Size()
+{
+	return movies.size();
 }

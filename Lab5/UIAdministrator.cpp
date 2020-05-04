@@ -3,7 +3,7 @@
 #include<iostream>
 
 UIAdministrator::UIAdministrator() {
-	//repo.zehn_eintrage();
+	UIcomun ui;
 }
 
 void UIAdministrator::meniu()
@@ -19,7 +19,7 @@ void UIAdministrator::meniu()
 void UIAdministrator::optiuni()
 {
 	UIcomun ui;
-	ControllerAdministrator ctrl;
+	//ControllerAdministrator ctrl;
 	while (true)
 	{
 		meniu();
@@ -29,8 +29,11 @@ void UIAdministrator::optiuni()
 		cin >> optiune;
 		switch (optiune)
 		{
-		default:
-			return;
+		case 0:
+		{
+			ui.menu();
+			break;
+		}
 		case 1:
 		{
 			ctrl.add();

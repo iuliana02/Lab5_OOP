@@ -2,14 +2,11 @@
 #include "Repository.h"
 class ControllerAdministrator 
 {
+	friend class UI;
+
 private:
-	//Repository repo;
-	/// <summary>	The watchliste. </summary>
-	//vector<Film> watchliste;
-	//vector<Film> movies;
-	//Repository rep;
-	//vector<Film> movies;
-	
+
+	/// <summary>	The repo. </summary>
 	Repository repo;
 
 public:

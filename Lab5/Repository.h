@@ -8,11 +8,10 @@ class Repository
 	friend class ControllerAdministrator;
 	friend class ControllerBenutzer;
 
-//protected:
-
 private:
 	vector<Film> movies;
 	vector<Film> watchliste;
+
 public:
 
 	Repository();
@@ -93,6 +92,8 @@ public:
 	/// <returns>	A vector&lt;Film&gt; </returns>
 	////////////////////////////////////////////////////////////////////////////////////////////////////
 	vector<Film> delete_film_repo(string titel);
+
+	int Size();
 
 };
 

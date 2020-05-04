@@ -9,7 +9,7 @@ using namespace std;
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
-namespace UnitTests
+namespace UnitTestss
 {
 	TEST_CLASS(UnitTests)
 	{
@@ -28,23 +28,23 @@ namespace UnitTests
 		TEST_METHOD(TestRepo)
 		{
 			auto repo = new Repository();
-			size_t i = 5;
-			size_t j = 0;
-			Assert::AreEqual(repo->movies.size(), i);
-			Assert::AreEqual(repo->watchliste.size(), j);
+			int i = 5;
+			int j = 0;
+			Assert::AreEqual(repo->Size(), i);
+			Assert::AreEqual(repo->Size(), j);
 
 			Film film = Film("a", "b", 2000, 150, "www");
 			repo->add_film(film);
-			size_t k = 6;
-			Assert::AreEqual(repo->movies.size(), k);
+			int k = 6;
+			Assert::AreEqual(repo->Size(), k);
 
 			repo->delete_film_repo("a");
 			repo->delete_film_repo("Titanic");
-			size_t l = 4;
-			Assert::AreEqual(repo->movies.size(), l);
+			int l = 4;
+			Assert::AreEqual(repo->Size(), l);
 		}
 
-		TEST_METHOD(TestModify)
+		/*TEST_METHOD(TestModify)
 		{
 			auto repo = new Repository();
 			Assert::AreEqual(repo->movies[0].get_titel(), string("Titanic"));
@@ -63,12 +63,43 @@ namespace UnitTests
 
 			vector<Film> aux = repo->nach_genre_anzeigen("Horror");
 			Assert::AreEqual(aux.size(), size_t (1));
-		}
+		}*/
 
 		TEST_METHOD(TestValidation)
 		{
 			Validation v;
-			Repository repo;
+			Repository repoo;
+
+			Film f1 = Film("Titanic", "Drama", 1997, 1000, "https://www.youtube.com/watch?v=kVrqfYjkTdQ");
+			repoo.add_film(f1);
+
+			Film f2 = Film("The Pianist", "Drama", 2002, 890, "https://www.youtube.com/watch?v=BFwGqLa_oAo");
+			repoo.add_film(f2);
+
+			Film f3;
+			f3.set_titel("Focus");
+			f3.set_genre("Comedie");
+			f3.set_erscheinungsjahr(2015);
+			f3.set_likes(1277);
+			f3.set_trailer("https://www.youtube.com/watch?v=MxCRgtdAuBo");
+			repoo.add_film(f3);
+
+			Film f4;
+			f4.set_titel("The longest ride");
+			f4.set_genre("Romance");
+			f4.set_erscheinungsjahr(2015);
+			f4.set_likes(1600);
+			f4.set_trailer("https://www.youtube.com/watch?v=FUS_Q7FsfqU");
+			repoo.add_film(f4);
+
+			Film f5;
+			f5.set_titel("Bird Box");
+			f5.set_genre("Horror");
+			f5.set_erscheinungsjahr(2018);
+			f5.set_likes(2055);
+			f5.set_trailer("https://www.youtube.com/watch?v=o2AsIXSh2xo");
+			repoo.add_film(f5);
+
 			bool actual = v.validate_string("string");
 			bool expected = true;
 			Assert::AreEqual(actual, expected);
@@ -81,23 +112,6 @@ namespace UnitTests
 			bool expected3 = true;
 			Assert::AreEqual(actual3, expected3);
 
-			Film f1 = Film("Titanic", "Drama", 1997, 1000, "https://www.youtube.com/watch?v=kVrqfYjkTdQ");
-			bool actual4 = v.validate_exist(repo.movies, f1);
-			bool expected4 = true;
-			Assert::AreEqual(actual4, expected4);
-
-			Film f2 = Film("q", "w", 1111, 5555, "https://www.youtube.VrqfYjkTdQ");
-			bool actual5 = v.validate_exist(repo.movies, f2);
-			bool expected5 = false;
-			Assert::AreEqual(actual5, expected5);
-
-			bool actual6 = v.validate_titel("Focus");
-			bool expected6 = true;
-			Assert::AreEqual(actual6, expected6);
-
-			bool actual7 = v.validate_titel("xyz");
-			bool expected7 = false;
-			Assert::AreEqual(actual7, expected7);
 		}
 	};
 }

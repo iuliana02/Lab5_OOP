@@ -4,7 +4,9 @@
 #include<iostream>
 using namespace std;
 
-ControllerAdministrator::ControllerAdministrator() : Repository() {}
+ControllerAdministrator::ControllerAdministrator() {
+	repo = Repository();
+}
 
 void ControllerAdministrator::add()
 {
@@ -35,11 +37,11 @@ void ControllerAdministrator::deletee()
 	cout << "Titel des Films fur Loschen:\n";
 	string titel;
 	cin >> titel;
-	while (!v.validate_titel(titel))
-	{
-		cout << "Kein Film mit dieses Titel\n";
-		cin >> titel;
-	}
+	//while (!v.validate_titel(titel))
+	//{
+	//	cout << "Kein Film mit dieses Titel\n";
+	//	cin >> titel;
+	//}
 	repo.delete_film_repo(titel);
 	cout << "Film geloschen\n";
 }
@@ -50,11 +52,11 @@ void ControllerAdministrator::edit_film_info()
 	cout << "Titel des Films zu modifizieren\n";
 	string titel;
 	cin >> titel;
-	while (!v.validate_titel(titel))
-	{
-		cout << "Kein Film mit dieses Titel\n";
-		cin >> titel;
-	}
+	//while (!v.validate_titel(titel))
+	//{
+	//	cout << "Kein Film mit dieses Titel\n";
+	//	cin >> titel;
+	//}
 
 	cout << "Neues Genre:\n";
 	string genre;

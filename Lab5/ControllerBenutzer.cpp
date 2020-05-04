@@ -7,7 +7,7 @@ using namespace std;
 
 
 ControllerBenutzer::ControllerBenutzer() {
-	repo = Repository();
+	//repo = Repository();
 }
 
 

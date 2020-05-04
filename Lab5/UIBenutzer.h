@@ -4,6 +4,8 @@
 
 class UIBenutzer 
 {
+private:
+	ControllerBenutzer ctrl;
 
 public:
 
