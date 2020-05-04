@@ -6,7 +6,7 @@ class ControllerBenutzer
 private:
 	// <summary>	The watchliste. </summary>
 	//vector<Film> watchliste;
-	Repository& repo;
+	Repository repo;
 
 public:
 

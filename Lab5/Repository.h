@@ -5,7 +5,8 @@
 
 class Repository
 {
-	//friend class Film;
+	friend class ControllerAdministrator;
+	friend class ControllerBenutzer;
 
 //protected:
 
