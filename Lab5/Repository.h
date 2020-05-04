@@ -5,13 +5,14 @@
 
 class Repository
 {
-	friend class Film;
+	//friend class Film;
 
 //protected:
 
-public:
+private:
 	vector<Film> movies;
 	vector<Film> watchliste;
+public:
 
 	Repository();
 

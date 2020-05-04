@@ -24,21 +24,24 @@ void UIcomun::menu()
 	cout << "Wahlen Sie den Modus\n";
 	int optiune;
 	cin >> optiune;
-	switch (optiune)
+	while (true)
 	{
-	case 1:
-	{
-		UIAdministrator uiA;
-		uiA.optiuni();
-		break;
-	}
-	case 2:
-	{
-		UIBenutzer uiB;
-		uiB.optiuni();
-		break;
-	}
-	default:
-		return;
+		switch (optiune)
+		{
+		case 1:
+		{
+			UIAdministrator uiA;
+			uiA.optiuni();
+			break;
+		}
+		case 2:
+		{
+			UIBenutzer uiB;
+			uiB.optiuni();
+			break;
+		}
+		default:
+			return;
+		}
 	}
 }

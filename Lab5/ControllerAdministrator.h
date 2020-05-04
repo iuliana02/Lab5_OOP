@@ -1,6 +1,6 @@
 #pragma once
 #include "Repository.h"
-class ControllerAdministrator : public Repository
+class ControllerAdministrator 
 {
 //private:
 //	Repository repo;
@@ -9,6 +9,8 @@ class ControllerAdministrator : public Repository
 	//vector<Film> movies;
 	//Repository rep;
 	//vector<Film> movies;
+	
+	Repository& repo;
 
 public:
 	////////////////////////////////////////////////////////////////////////////////////////////////////
