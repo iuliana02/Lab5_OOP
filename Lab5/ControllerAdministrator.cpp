@@ -4,9 +4,7 @@
 #include<iostream>
 using namespace std;
 
-ControllerAdministrator::ControllerAdministrator() {
-	repo = Repository();
-}
+ControllerAdministrator::ControllerAdministrator() : Repository() {}
 
 void ControllerAdministrator::add()
 {
