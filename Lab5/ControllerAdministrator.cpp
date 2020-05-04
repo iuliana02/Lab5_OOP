@@ -4,7 +4,9 @@
 #include<iostream>
 using namespace std;
 
-ControllerAdministrator::ControllerAdministrator() : Repository() {}
+ControllerAdministrator::ControllerAdministrator() {
+	repo = Repository();
+}
 
 void ControllerAdministrator::add()
 {
@@ -24,7 +26,7 @@ void ControllerAdministrator::add()
 	string trailer;
 	cin >> trailer;
 	Film neuesFilm = Film(titel, genre, jahr, likes, trailer);
-	add_film(neuesFilm);
+	repo.add_film(neuesFilm);
 	cout << "Film eingefugt\n";
 }
 
@@ -40,7 +42,7 @@ void ControllerAdministrator::deletee()
 		cout << "Kein Film mit dieses Titel\n";
 		cin >> titel;
 	}
-	delete_film_repo(titel);
+	repo.delete_film_repo(titel);
 	cout << "Film geloschen\n";
 }
 
@@ -69,7 +71,7 @@ void ControllerAdministrator::edit_film_info()
 	string trailer;
 	cin >> trailer;
 
-	update_film(titel, genre, jahr, likes, trailer);
+	repo.update_film(titel, genre, jahr, likes, trailer);
 
 	cout << "Film modifiziert!\n";
 }
@@ -77,11 +79,11 @@ void ControllerAdministrator::edit_film_info()
 
 void ControllerAdministrator::show_filme()
 {
-	if (movies.size() == 0)
+	if (repo.movies.size() == 0)
 		cout << "Nu exista filme!\n";
-	for (int i = 0; i < movies.size(); i++)
+	for (int i = 0; i < repo.movies.size(); i++)
 	{
-		cout << movies[i].toString() << endl;
+		cout << repo.movies[i].toString() << endl;
 	}
 }
 

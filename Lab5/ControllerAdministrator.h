@@ -2,15 +2,15 @@
 #include "Repository.h"
 class ControllerAdministrator 
 {
-//private:
-//	Repository repo;
+private:
+	//Repository repo;
 	/// <summary>	The watchliste. </summary>
 	//vector<Film> watchliste;
 	//vector<Film> movies;
 	//Repository rep;
 	//vector<Film> movies;
 	
-	Repository& repo;
+	Repository repo;
 
 public:
 	////////////////////////////////////////////////////////////////////////////////////////////////////
