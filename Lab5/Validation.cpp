@@ -30,3 +30,10 @@ bool Validation::validate_ja_nein(string frage)
 	return false;
 }
 
+bool Validation::invalid_year(int year)
+{
+	if (year < 1900 || year>2020)
+		return true;
+	return false;
+
+}

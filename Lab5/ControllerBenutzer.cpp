@@ -7,7 +7,7 @@ using namespace std;
 
 
 ControllerBenutzer::ControllerBenutzer() {
-	//repo = Repository();
+	repo = Repository();
 }
 
 
@@ -18,6 +18,11 @@ void ControllerBenutzer::view_by_genre()
 	string gen;
 	cout << "Genul filmului:\n";
 	cin >> gen;
+	while (!repo.search_nach_genre(gen))
+	{
+		cout << "Dieser Genre existiert nicht!\n";
+		cin >> gen;
+	}
 	while (!v.validate_string(gen))
 	{
 		cout << "Man soll einen String einfugen!\n";

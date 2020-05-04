@@ -169,3 +169,19 @@ int Repository::Size()
 {
 	return movies.size();
 }
+
+bool Repository::search_nach_titel(string titel)
+{
+	for (int i = 0; i < movies.size(); i++)
+		if (movies[i].get_titel() == titel)
+			return true;
+	return false;
+}
+
+bool Repository::search_nach_genre(string genre)
+{
+	for (int i = 0; i < movies.size(); i++)
+		if (movies[i].get_genre() == genre)
+			return true;
+	return false;
+}
