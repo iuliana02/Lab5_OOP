@@ -50,11 +50,11 @@ void UIAdministrator::optiuni()
 				ctrl.edit_film_info();
 				break;
 			}
-			/*case 4:
+			case 4:
 			{
 				ctrl.show_filme();
 				break;
-			}*/
+			}
 			}
 		}
 		else if (optiune == 0) { break; }
