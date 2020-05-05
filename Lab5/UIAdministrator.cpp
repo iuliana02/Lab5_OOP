@@ -56,8 +56,7 @@ void UIAdministrator::optiuni()
 				break;
 			}
 			}
-		}
-		else if (optiune == 0) { break; }
+		}else if(optiune==0){break;}
 	}
 }
 

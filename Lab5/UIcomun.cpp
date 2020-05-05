@@ -27,22 +27,26 @@ void UIcomun::menu()
 		cout << "Wahlen Sie den Modus\n";
 		int optiune;
 		cin >> optiune;
-		switch (optiune)
-		{
-		case 1:
-		{
-			uiA.optiuni();
-			break;
+		if(optiune!=0)
+		{ 
+			switch (optiune)
+			{
+			case 1:
+			{
+				uiA.optiuni();
+				break;
+			}
+			case 2:
+			{
+				uiB.optiuni();
+				break;
+			}
+			/*default:
+			{
+				return;
+			}*/
+			}
 		}
-		case 2:
-		{
-			uiB.optiuni();
-			break;
-		}
-		default:
-		{
-			return;
-		}
-		}
+		else if (optiune == 0) { break; }
 	}
 }

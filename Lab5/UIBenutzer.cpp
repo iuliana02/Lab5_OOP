@@ -25,29 +25,33 @@ void UIBenutzer::optiuni()
 		int optiune;
 		cout << "Wahlen sie eine Option\n";
 		cin >> optiune;
-		switch (optiune)
+		if (optiune != 0)
 		{
-		case 0:
-		{
-			ui.menu();
-			break;
-		}
+			switch (optiune)
+			{
+			/*case 0:
+			{
+				ui.menu();
+				break;
+			}*/
 
-		case 1:
-		{
-			ctrl.view_by_genre();
-			break;
+			case 1:
+			{
+				ctrl.view_by_genre();
+				break;
+			}
+			case 2:
+			{
+				ctrl.remove_film();
+				break;
+			}
+			case 3:
+			{
+				ctrl.show_watchliste();
+				break;
+			}
+			}
 		}
-		case 2:
-		{
-			ctrl.remove_film();
-			break;
-		}
-		case 3:
-		{
-			ctrl.show_watchliste();
-			break;
-		}
-		}
+		else if (optiune == 0) { break; }
 	}
 }
