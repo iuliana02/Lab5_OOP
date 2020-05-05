@@ -27,34 +27,37 @@ void UIAdministrator::optiuni()
 		int optiune;
 		cout << "Wahlen sie eine Option\n";
 		cin >> optiune;
-		switch (optiune)
-		{
-		case 0:
-		{
-			ui.menu();
-			break;
+		if (optiune != 0) {
+			switch (optiune)
+			{
+			/*case 0:
+			{
+				ui.menu();
+				break;
+			}*/
+			case 1:
+			{
+				ctrl.add();
+				break;
+			}
+			case 2:
+			{
+				ctrl.deletee();
+				break;
+			}
+			case 3:
+			{
+				ctrl.edit_film_info();
+				break;
+			}
+			/*case 4:
+			{
+				ctrl.show_filme();
+				break;
+			}*/
+			}
 		}
-		case 1:
-		{
-			ctrl.add();
-			break;
-		}
-		case 2:
-		{
-			ctrl.deletee();
-			break;
-		}
-		case 3:
-		{
-			ctrl.edit_film_info();
-			break;
-		}
-		case 4:
-		{
-			ctrl.show_filme();
-			break;
-		}
-		}
+		else if (optiune == 0) { break; }
 	}
 }
 

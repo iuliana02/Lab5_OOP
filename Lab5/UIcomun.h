@@ -11,7 +11,6 @@ class UIcomun
 private:
 	Repository repo;
 
-
 public:
 
 	UIcomun();
