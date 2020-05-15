@@ -1,5 +1,6 @@
 #pragma once
 #include "Repository.h"
+#include "Watchlist.h"
 
 class ControllerBenutzer 
 {
@@ -7,6 +8,7 @@ private:
 	// <summary>	The watchliste. </summary>
 	//vector<Film> watchliste;
 	Repository repo;
+	Watchlist list;
 
 public:
 

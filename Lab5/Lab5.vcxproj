@@ -147,6 +147,7 @@
     <ClCompile Include="UIBenutzer.cpp" />
     <ClCompile Include="UIcomun.cpp" />
     <ClCompile Include="Validation.cpp" />
+    <ClCompile Include="Watchlist.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ControllerAdministrator.h" />
@@ -157,6 +158,11 @@
     <ClInclude Include="UIBenutzer.h" />
     <ClInclude Include="UIcomun.h" />
     <ClInclude Include="Validation.h" />
+    <ClInclude Include="Watchlist.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="movies.txt" />
+    <Text Include="watchlist.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

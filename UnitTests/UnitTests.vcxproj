@@ -102,7 +102,7 @@
     <Link>
       <SubSystem>Windows</SubSystem>
       <AdditionalLibraryDirectories>$(VCInstallDir)UnitTest\lib;C:\Users\popai\Desktop\OOP\Lab5\Lab5\Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>Film.obj;App.obj;ControllerAdministrator.obj;ControllerBenutzer.obj;Repository.obj;UIAdministrator.obj;UIBenutzer.obj;UIcomun.obj;Validation.obj;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>Film.obj;App.obj;ControllerAdministrator.obj;ControllerBenutzer.obj;Repository.obj;UIAdministrator.obj;UIBenutzer.obj;UIcomun.obj;Validation.obj;Watchlist.obj;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">

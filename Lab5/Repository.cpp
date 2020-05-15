@@ -2,11 +2,13 @@
 #include "Validation.h"
 #include <vector>
 #include <iostream>
+
+#include <fstream>
+#include <stdlib.h>
 using namespace std;
 
 
 Repository::Repository() {
-	zehn_eintrage();
 }
 
 void Repository::add_film(Film film)
@@ -84,7 +86,7 @@ vector<Film> Repository::nach_genre_anzeigen(string genre)
 	return aux;
 }
 
-
+/*
 void Repository::zehn_eintrage()
 {
 	Film f1 = Film("Titanic", "Drama", 1997, 1000, "https://www.youtube.com/watch?v=kVrqfYjkTdQ");
@@ -157,6 +159,7 @@ void Repository::zehn_eintrage()
 	f10.set_trailer("https://www.youtube.com/watch?v=8NR5RA75yDU");
 	add_film(f10);
 }
+*/
 
 void Repository::update_likes(Film f, int likes)
 {
@@ -184,4 +187,42 @@ bool Repository::search_nach_genre(string genre)
 		if (movies[i].get_genre() == genre)
 			return true;
 	return false;
+}
+
+
+ 
+void Repository::read_file(vector <Film> f, string filename)
+{
+	ifstream readFile;
+	readFile.open(filename);
+
+	string titlu;
+	string gen;
+	int an;
+	int likes;
+	string link;
+
+	if (readFile.is_open())
+		while (!readFile.eof())
+		{
+			while (readFile >> titlu >> gen >> an >> likes >> link)
+			{
+				Film f = Film(titlu, gen, an, likes, link);
+				movies.push_back(f);
+			}
+		}
+
+}
+
+void Repository::write_file(vector <Film> f, string filename)
+{
+	ofstream writeFile;
+	writeFile.open(filename, ofstream::out | ofstream::trunc);
+	
+	for (int i = 0; i < f.size(); i++)
+	{
+		writeFile << i << ". " << f[i].get_titel() << " " << f[i].get_genre() << " " << f[i].get_erscheinungsjahr() << " " << f[i].get_likes() << " " << f[i].get_trailer() << endl;
+	}
+
+	writeFile.close();
 }

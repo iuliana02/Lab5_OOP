@@ -3,6 +3,8 @@
 #include "../Lab5/Film.h"
 #include "../Lab5/Repository.h"
 #include "../Lab5/Validation.h"
+#include "../Lab5/Watchlist.h"
+
 #include <string>
 #include <vector>
 using namespace std;

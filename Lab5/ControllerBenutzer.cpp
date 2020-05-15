@@ -3,12 +3,16 @@
 #include <vector>
 #include <string>
 #include "Validation.h"
+#include "Watchlist.h"
 using namespace std;
 
 
 ControllerBenutzer::ControllerBenutzer() {
 	repo = Repository();
-}
+	repo.read_file(repo.movies, "movies.txt");
+	list = Watchlist();
+	list.get_watchlist();
+}	
 
 
 void ControllerBenutzer::view_by_genre()
@@ -49,7 +53,7 @@ void ControllerBenutzer::view_by_genre()
 			cin >> antwort;
 		}
 		if (antwort == "Ja")
-			repo.watchliste.push_back(filme[i]);
+			list.add_watchlist(filme[i]);
 
 		cout << "Wollen Sie den Trailer des nachsten Films sehen?\n";
 		string antwort2;
@@ -70,7 +74,7 @@ void ControllerBenutzer::view_by_genre()
 void ControllerBenutzer::remove_film()
 {
 	Validation v;
-	if (repo.watchliste.size() == 0)
+	if (list.get_watchlist().size() == 0)
 	{
 		cout << "Kein Film in der Watchliste. Remove ist nicht moglich!\n";
 		return;
@@ -84,9 +88,9 @@ void ControllerBenutzer::remove_film()
 		cout << "Geben Sie noch einmal den Titel des Films:\n";
 		cin >> a;
 	}
-	Film film = repo.get_film(repo.watchliste, a);
+	Film film = repo.get_film(list.watchlist, a);
 
-	vector<Film> sters = repo.delete_film_watchliste(repo.watchliste,a);
+	vector<Film> sters = repo.delete_film_watchliste(list.watchlist,a);
 
 	cout << "Wollen Sie den geloschten Film bewerten? Like->1\n";
 	string b;
@@ -97,15 +101,15 @@ void ControllerBenutzer::remove_film()
 		cout << "Danke fur Ihre Bewertung!\n";
 	}
 
-	repo.watchliste = sters;
+	list.watchlist = sters;
 }
 
 void ControllerBenutzer::show_watchliste()
 {
-	if (repo.watchliste.size() == 0)
+	if (list.watchlist.size() == 0)
 		cout << "Kein Film in der Watchliste\n";
-	for (int i = 0; i < repo.watchliste.size(); i++)
-		cout << repo.watchliste[i].toString() << endl;
+	for (int i = 0; i < list.watchlist.size(); i++)
+		cout << list.watchlist[i].toString() << endl;
 }
 
 

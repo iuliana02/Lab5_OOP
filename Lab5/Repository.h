@@ -3,6 +3,7 @@
 #include "Film.h"
 #include "Validation.h"
 
+
 class Repository
 {
 	friend class ControllerAdministrator;
@@ -10,7 +11,7 @@ class Repository
 
 private:
 	vector<Film> movies;
-	vector<Film> watchliste;
+//	vector<Film> watchliste;
 
 public:
 
@@ -65,12 +66,6 @@ public:
 	////////////////////////////////////////////////////////////////////////////////////////////////////
 	Film get_film(vector<Film> aux, string titel);
 
-	////////////////////////////////////////////////////////////////////////////////////////////////////
-	/// <summary>	Zehn eintrage. </summary>
-	///
-	/// <remarks>	Popai, 24/04/2020. </remarks>
-	////////////////////////////////////////////////////////////////////////////////////////////////////
-	void zehn_eintrage();
 
 	////////////////////////////////////////////////////////////////////////////////////////////////////
 	/// <summary>	Updates the likes. </summary>
@@ -115,6 +110,10 @@ public:
 	bool search_nach_titel(string titel);
 
 	bool search_nach_genre(string genre);
+
+	void read_file(vector <Film> f, string filename);
+
+	void write_file(vector <Film> f, string filename);
 
 };
 

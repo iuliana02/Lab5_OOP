@@ -7,6 +7,7 @@ using namespace std;
 UIcomun::UIcomun()
 {
 	repo = Repository();
+
 }
 
 void UIcomun::menu_final()
