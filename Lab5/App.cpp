@@ -10,6 +10,6 @@ int main()
 	ui.menu();
 
 	cout << "Proba lab6" << endl;
-
+	cout << "branch lab6" << endl;
 	return 0;
 }
