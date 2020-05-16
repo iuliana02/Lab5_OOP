@@ -10,7 +10,7 @@ using namespace std;
 ControllerBenutzer::ControllerBenutzer() {
 	repo = Repository();
 	repo.read_file(repo.movies, "movies.txt");
-	list = Watchlist();
+	Watchlist list;
 	list.get_watchlist();
 }	
 

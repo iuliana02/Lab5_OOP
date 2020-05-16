@@ -212,6 +212,7 @@ void Repository::read_file(vector <Film> f, string filename)
 			}
 		}
 
+	readFile.close();
 }
 
 void Repository::write_file(vector <Film> f, string filename)
