@@ -145,8 +145,6 @@
     <ClCompile Include="Film.cpp" />
     <ClCompile Include="Others.cpp" />
     <ClCompile Include="Repository.cpp" />
-    <ClCompile Include="UIAdministrator.cpp" />
-    <ClCompile Include="UIBenutzer.cpp" />
     <ClCompile Include="UI.cpp" />
     <ClCompile Include="Validation.cpp" />
     <ClCompile Include="Watchlist.cpp" />

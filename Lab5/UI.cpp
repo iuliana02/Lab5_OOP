@@ -115,7 +115,7 @@ void UI::addMovieToWatchlist()
 	getline(cin, title);
 	cout << "Enter the genre: ";
 	std::string genre;
-	getline(cin, genre);
+	getline(cin, genre);;
 
 	// search for the song in the repository
 	try
