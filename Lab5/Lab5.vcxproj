@@ -139,8 +139,6 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="App.cpp" />
-    <ClCompile Include="ControllerAdministrator.cpp" />
-    <ClCompile Include="ControllerBenutzer.cpp" />
     <ClCompile Include="Exceptions.cpp" />
     <ClCompile Include="Film.cpp" />
     <ClCompile Include="Others.cpp" />
@@ -152,8 +150,6 @@
     <ClCompile Include="Watchlist.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="ControllerAdministrator.h" />
-    <ClInclude Include="ControllerBenutzer.h" />
     <ClInclude Include="Exceptions.h" />
     <ClInclude Include="Film.h" />
     <ClInclude Include="Others.h" />

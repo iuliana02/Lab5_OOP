@@ -21,12 +21,6 @@
     <ClCompile Include="Repository.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="ControllerBenutzer.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="ControllerAdministrator.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="UIBenutzer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -57,12 +51,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Repository.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ControllerBenutzer.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ControllerAdministrator.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="UIBenutzer.h">
