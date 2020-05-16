@@ -62,7 +62,7 @@
     <ClInclude Include="ControllerAdministrator.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Validation.h">
+    <ClInclude Include="UIBenutzer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Watchlist.h">
