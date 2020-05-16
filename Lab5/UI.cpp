@@ -95,7 +95,7 @@ void UI::removeMovieFromRepo()
 
 void UI::displayAllMoviesRepo()
 {
-	vector<Film> movielist = this->ctrl.getRepo().getMovies();
+	vector<Film> movielist = this->ctrl.getRepo().get_movies();
 	if (movielist.size() == 0)
 	{
 		cout << "There are no movies in the repository." << endl;
@@ -115,7 +115,7 @@ void UI::addMovieToWatchlist()
 	getline(cin, title);
 	cout << "Enter the genre: ";
 	std::string genre;
-	getline(cin, genre);
+	getline(cin, genre);;
 
 	// search for the song in the repository
 	try
