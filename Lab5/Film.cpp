@@ -3,6 +3,9 @@
 #include <windows.h>
 #include <shellapi.h>
 #include<Windows.h>
+#include <vector>
+#include "Others.h"
+#include <sstream>
 
 
 Film::Film() {}
@@ -37,3 +40,28 @@ void Film::runURL()
 }
 
 Film::~Film() {}
+
+istream& operator>>(istream& is, Film& m)
+{
+	string line;
+	getline(is, line);
+
+	vector<string> tokens = tokenize(line, ',');
+	if (tokens.size() != 5) // make sure all the starship data was valid
+		return is;
+
+	m.set_titel(tokens[0]) ;
+	m.set_genre(tokens[1]);
+	m.set_erscheinungsjahr(stoi(tokens[2]));
+	m.set_likes (stoi(tokens[3]));
+	m.set_trailer(tokens[4]);
+
+	return is;
+
+}
+
+ostream& operator<<(ostream& os, Film& m)
+{
+	os << m.get_titel() << ", " << m.get_genre() << ", " << m.get_erscheinungsjahr() << ", " << m.get_likes() << ", " << m.get_trailer() << "\n";
+	return os;
+}

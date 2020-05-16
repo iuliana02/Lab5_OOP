@@ -141,7 +141,9 @@
     <ClCompile Include="App.cpp" />
     <ClCompile Include="ControllerAdministrator.cpp" />
     <ClCompile Include="ControllerBenutzer.cpp" />
+    <ClCompile Include="Exceptions.cpp" />
     <ClCompile Include="Film.cpp" />
+    <ClCompile Include="Others.cpp" />
     <ClCompile Include="Repository.cpp" />
     <ClCompile Include="UIAdministrator.cpp" />
     <ClCompile Include="UIBenutzer.cpp" />
@@ -152,7 +154,9 @@
   <ItemGroup>
     <ClInclude Include="ControllerAdministrator.h" />
     <ClInclude Include="ControllerBenutzer.h" />
+    <ClInclude Include="Exceptions.h" />
     <ClInclude Include="Film.h" />
+    <ClInclude Include="Others.h" />
     <ClInclude Include="Repository.h" />
     <ClInclude Include="UIAdministrator.h" />
     <ClInclude Include="UIBenutzer.h" />

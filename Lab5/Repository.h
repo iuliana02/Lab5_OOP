@@ -11,11 +11,14 @@ class Repository
 
 private:
 	vector<Film> movies;
-//	vector<Film> watchliste;
+	string filename;
+
+	void read_file();
+	void write_file();
 
 public:
 
-	Repository();
+	Repository(const string& filename);
 
 	////////////////////////////////////////////////////////////////////////////////////////////////////
 	/// <summary>	Adds a film. </summary>
@@ -111,9 +114,10 @@ public:
 
 	bool search_nach_genre(string genre);
 
-	void read_file(vector <Film> f, string filename);
+	Film findByTitleandGenre(const std::string& title, const std::string& genre, const int& year) const;
 
-	void write_file(vector <Film> f, string filename);
+	vector<Film> get_movies() { return movies; }
+
 
 };
 
