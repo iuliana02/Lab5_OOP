@@ -19,7 +19,7 @@ void Controller::removeMovieFromRepository(const std::string& title, const std::
 
 }
 
-void Controller::addMovieToWatchlist(const Film& movie)
+void Controller::addMovieToWatchlist( Film& movie)
 {
 	if (this->watchlist == nullptr)
 		return;

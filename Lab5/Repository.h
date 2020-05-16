@@ -114,7 +114,7 @@ public:
 
 	bool search_nach_genre(string genre);
 
-	Film findByTitleandGenre(const std::string& title, const std::string& genre, const int& year) const;
+	Film findByTitleandGenre(const std::string& title, const std::string& genre) const;
 
 	vector<Film> get_movies() { return movies; }
 

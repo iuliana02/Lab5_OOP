@@ -95,7 +95,7 @@ void UI::removeMovieFromRepo()
 
 void UI::displayAllMoviesRepo()
 {
-	vector<Film> movielist = this->ctrl.getRepo().getMovies();
+	vector<Film> movielist = this->ctrl.getRepo().get_movies();
 	if (movielist.size() == 0)
 	{
 		cout << "There are no movies in the repository." << endl;

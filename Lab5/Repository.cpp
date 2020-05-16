@@ -221,3 +221,14 @@ void Repository::write_file()
 
 	file.close();
 }
+
+Film Repository::findByTitleandGenre(const std::string& title, const std::string& genre) const
+{
+	for (auto m : this->movies)
+	{
+		if (m.get_titel() == title && m.get_genre() == genre)
+			return m;
+	}
+
+	throw InexistentMovieException{};
+}

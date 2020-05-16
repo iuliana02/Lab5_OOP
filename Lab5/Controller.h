@@ -1,7 +1,7 @@
 #pragma once
 #include "Repository.h"
 #include "FileWatchlist.h"
-#include "MovieValidator.h"
+#include "Validation.h"
 #include <memory>
 #include "Watchlist.h"
 
@@ -37,7 +37,7 @@ public:
 	Input: song - Song, the song must belong to the repository.
 	Output: the song is added to the Watchlist.
 	*/
-	void addMovieToWatchlist(const Film& movie);
+	void addMovieToWatchlist( Film& movie);
 
 	// Adds all the songs from the repository, that have the given artist, to the current Watchlist.
 	void addAllMoviesByGenreToWatchlist(const std::string& genre);

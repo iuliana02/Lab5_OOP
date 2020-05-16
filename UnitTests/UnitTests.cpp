@@ -27,7 +27,7 @@ namespace UnitTestss
 			Assert::AreEqual(string("www"), film->get_trailer());
 		}
 
-		TEST_METHOD(TestRepo)
+	/*	TEST_METHOD(TestRepo)
 		{
 			auto repo = new Repository();
 			int i = 5;
@@ -67,7 +67,7 @@ namespace UnitTestss
 			Assert::AreEqual(aux.size(), size_t (1));
 		}*/
 
-		TEST_METHOD(TestValidation)
+		/*TEST_METHOD(TestValidation)
 		{
 			Validation v;
 			Repository repoo;
@@ -114,6 +114,6 @@ namespace UnitTestss
 			bool expected3 = true;
 			Assert::AreEqual(actual3, expected3);
 
-		}
+		}*/
 	};
 }
