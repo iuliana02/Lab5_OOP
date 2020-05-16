@@ -5,10 +5,13 @@
 
 #include <fstream>
 #include <stdlib.h>
+#include "Exceptions.h"
 using namespace std;
 
 
-Repository::Repository() {
+Repository::Repository( const string &filename) {
+	this->filename = filename;
+	this->read_file();
 }
 
 void Repository::add_film(Film film)
@@ -190,40 +193,31 @@ bool Repository::search_nach_genre(string genre)
 }
 
 
- 
-void Repository::read_file(vector <Film> f, string filename)
+
+void Repository::read_file()
 {
-	ifstream readFile;
-	readFile.open(filename);
+	ifstream file(this->filename);
 
-	string titlu;
-	string gen;
-	int an;
-	int likes;
-	string link;
+	if (!file.is_open())
+		throw FileException("The file could not be opened!");
 
-	if (readFile.is_open())
-		while (!readFile.eof())
-		{
-			while (readFile >> titlu >> gen >> an >> likes >> link)
-			{
-				Film f = Film(titlu, gen, an, likes, link);
-				movies.push_back(f);
-			}
-		}
+	Film m;
+	while (file >> m)
+		this->movies.push_back(m);
 
-	readFile.close();
+	file.close();
 }
 
-void Repository::write_file(vector <Film> f, string filename)
+void Repository::write_file()
 {
-	ofstream writeFile;
-	writeFile.open(filename, ofstream::out | ofstream::trunc);
-	
-	for (int i = 0; i < f.size(); i++)
+	ofstream file(this->filename);
+	if (!file.is_open())
+		throw FileException("The file could not be opened!");
+
+	for (auto m : this->movies)
 	{
-		writeFile << i << ". " << f[i].get_titel() << " " << f[i].get_genre() << " " << f[i].get_erscheinungsjahr() << " " << f[i].get_likes() << " " << f[i].get_trailer() << endl;
+		file << m;
 	}
 
-	writeFile.close();
+	file.close();
 }

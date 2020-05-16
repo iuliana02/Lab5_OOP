@@ -143,5 +143,8 @@ public:
 	/// <remarks>	Popai, 24/04/2020. </remarks>
 	////////////////////////////////////////////////////////////////////////////////////////////////////
 	~Film();
+
+	friend std::istream& operator>>(std::istream& is, Film& m);
+	friend std::ostream& operator<<(std::ostream& os,  Film& m);
 };
 
