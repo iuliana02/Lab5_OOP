@@ -151,8 +151,6 @@
     <ClCompile Include="Watchlist.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="ControllerAdministrator.h" />
-    <ClInclude Include="ControllerBenutzer.h" />
     <ClInclude Include="Exceptions.h" />
     <ClInclude Include="fileWatchlist.h" />
     <ClInclude Include="Film.h" />
