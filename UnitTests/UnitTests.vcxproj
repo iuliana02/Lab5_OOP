@@ -77,7 +77,7 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>Film.h;Repository.h;$(IncludePath)</IncludePath>
+    <IncludePath>Film.h;Repository.h;App.h;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
@@ -102,7 +102,7 @@
     <Link>
       <SubSystem>Windows</SubSystem>
       <AdditionalLibraryDirectories>$(VCInstallDir)UnitTest\lib;C:\Users\popai\Desktop\OOP\Lab5\Lab5\Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>Film.obj;App.obj;ControllerAdministrator.obj;ControllerBenutzer.obj;Repository.obj;UIAdministrator.obj;UIBenutzer.obj;UIcomun.obj;Validation.obj;Watchlist.obj;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>Film.obj;App.obj;Repository.obj;UI.obj;Controller.obj;Validation.obj;Watchlist.obj;csvWatchlist.obj;Exceptions.obj;fileWatchlist.obj;Others.obj;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">

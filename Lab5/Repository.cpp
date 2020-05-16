@@ -1,4 +1,5 @@
 #include "Repository.h"
+#include "Film.h"
 #include "Validation.h"
 #include <vector>
 #include <iostream>
@@ -14,6 +15,7 @@ Repository::Repository( const string &filename) {
 	this->read_file();
 }
 
+/*
 void Repository::add_film(Film film)
 {
 	for (int i = 0; i < movies.size(); i++)
@@ -162,7 +164,7 @@ void Repository::zehn_eintrage()
 	f10.set_trailer("https://www.youtube.com/watch?v=8NR5RA75yDU");
 	add_film(f10);
 }
-*/
+
 
 void Repository::update_likes(Film f, int likes)
 {
@@ -191,8 +193,30 @@ bool Repository::search_nach_genre(string genre)
 			return true;
 	return false;
 }
+*/
 
 
+void Repository::addMovie(const Film& m)
+{
+	Film m1{};
+	try
+	{
+		m1 = this->findByTitleandGenre(m.get_titel(), m.get_genre());
+		throw DuplicateMovieException();
+	}
+	catch (InexistentMovieException& e) {}
+	this->movies.push_back(m);
+	this->write_file();
+}
+
+void Repository::removeMovie(const Film& m)
+{
+	auto it = find(this->movies.begin(), this->movies.end(), m);
+	if (it == this->movies.end())
+		throw InexistentMovieException{};
+	this->movies.erase(it);
+	this->write_file();
+}
 
 void Repository::read_file()
 {

@@ -2,7 +2,7 @@
 #include <string>
 #include <windows.h>
 #include <shellapi.h>
-#include<Windows.h>
+//#include<Windows.h>
 #include <vector>
 #include "Others.h"
 #include <sstream>
@@ -10,7 +10,7 @@
 
 Film::Film() {}
 
-Film::Film(string titel, string genre, int erscheinungsjahr, int likes, string trailer)
+Film::Film(const string &titel, const string &genre, const int &erscheinungsjahr, const int& likes, const string &trailer)
 {
 	this->titel = titel;
 	this->genre = genre;
@@ -41,13 +41,19 @@ void Film::runURL()
 
 Film::~Film() {}
 
+bool Film::operator==(const Film& m)
+{
+	return (this->titel == m.titel && this->genre == m.genre);
+}
+
+//citim din fisier
 istream& operator>>(istream& is, Film& m)
 {
 	string line;
 	getline(is, line);
 
 	vector<string> tokens = tokenize(line, ',');
-	if (tokens.size() != 5) // make sure all the starship data was valid
+	if (tokens.size() != 5) // make sure all the data was valid
 		return is;
 
 	m.set_titel(tokens[0]) ;
@@ -60,6 +66,7 @@ istream& operator>>(istream& is, Film& m)
 
 }
 
+//scriem in fisier
 ostream& operator<<(ostream& os, Film& m)
 {
 	os << m.get_titel() << ", " << m.get_genre() << ", " << m.get_erscheinungsjahr() << ", " << m.get_likes() << ", " << m.get_trailer() << "\n";

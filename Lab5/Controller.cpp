@@ -9,13 +9,13 @@ void Controller::addMovieToRepository(const std::string& title, const std::strin
 {
 	Film m{ title, genre, year, like, trailer };
 	this->validator.validate(m);
-	this->repo.add_film(m);
+	this->repo.addMovie(m);
 }
 
 void Controller::removeMovieFromRepository(const std::string& title, const std::string& genre)
 {
 	Film m = this->repo.findByTitleandGenre(title, genre);
-	this->repo.delete_film_repo(m.get_titel());
+	this->repo.removeMovie(m);
 
 }
 

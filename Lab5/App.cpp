@@ -1,5 +1,6 @@
-
+#include "Exceptions.h"
 #include "UI.h"
+#include "csvWatchlist.h"
 #include <iostream>
 
 
@@ -9,8 +10,8 @@ int main()
 
 	try
 	{
-		Repository repo("./Input.txt");
-		FileWatchlist* w = new CSVWatchlist{};
+		Repository repo("./movies.txt");
+		FileWatchlist* w = new csvWatchlist {};
 		Controller ctrl(repo, w, MovieValidator{});
 		UI ui(ctrl);
 		ui.run();
