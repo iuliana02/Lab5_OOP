@@ -48,6 +48,9 @@
     <ClCompile Include="csvWatchlist.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="html.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Film.h">
@@ -78,6 +81,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="csvWatchlist.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="html.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -147,6 +147,7 @@
     <ClCompile Include="Exceptions.cpp" />
     <ClCompile Include="fileWatchlist.cpp" />
     <ClCompile Include="Film.cpp" />
+    <ClCompile Include="html.cpp" />
     <ClCompile Include="Others.cpp" />
     <ClCompile Include="Repository.cpp" />
     <ClCompile Include="UI.cpp" />
@@ -159,6 +160,7 @@
     <ClInclude Include="Exceptions.h" />
     <ClInclude Include="fileWatchlist.h" />
     <ClInclude Include="Film.h" />
+    <ClInclude Include="html.h" />
     <ClInclude Include="Others.h" />
     <ClInclude Include="Repository.h" />
     <ClInclude Include="UI.h" />
