@@ -7,16 +7,17 @@ private:
 	Controller& ctrl;	// reference to the controller (controller cannot be copied!)
 
 	static void printMenu();
-	static void printRepositoryMenu();
-	static void printPlayListMenu();
+	static void printUserMenu();
+	static void printAdminMenu();
 
 	void addMovieToRepo();
 	void removeMovieFromRepo();
+	void updateMovieFromRepo();
 	void displayAllMoviesRepo();
 	void addMovieToWatchlist();
-	void addAllMoviesByGenreToWatchlist();
 	void saveWatchlistToFile();
-
+	void removeMovieFromWatchlist();
+	void view();
 
 public:
 	UI(Controller& c) : ctrl(c) {}

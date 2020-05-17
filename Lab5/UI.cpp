@@ -10,30 +10,31 @@ using namespace std;
 void UI::printMenu()
 {
 	cout << endl;
-	cout << "1 - Manage repository." << endl;
-	cout << "2 - Manage watchlist." << endl;
+	cout << "\tFilm App\n";
+	cout << "1 - Benutzer Mod" << endl;
+	cout << "2 - Admin Mod" << endl;
 	cout << "0 - Exit." << endl;
 }
 
-void UI::printRepositoryMenu()
+void UI::printAdminMenu()
 {
-	cout << "Possible commands: " << endl;
-	cout << "\t 1 - Add movie." << endl;
-	cout << "\t 2 - Remove movie." << endl;
-	cout << "\t 3 - Display all." << endl;
-	cout << "\t 0 - Back." << endl;
+	cout << "Choose: " << endl;
+	cout << "\t 1 - Add film" << endl;
+	cout << "\t 2 - Remove film" << endl;
+	cout << "\t 3 - Update film" << endl;
+	cout << "\t 4- Show database\n";
+	cout << "\t 0 - Return to main menu" << endl;
 }
 
-void UI::printPlayListMenu()
+void UI::printUserMenu()
 {
-	cout << "Possible commands: " << endl;
-	cout << "\t 1 - Add movie." << endl;
-	cout << "\t 2 - Add movies by genre." << endl;
-	cout << "\t 3 - Play." << endl;
-	cout << "\t 4 - Next." << endl;
-	cout << "\t 5 - Save watchlist to file." << endl;
-	cout << "\t 6 - Display watchlist." << endl;
-	cout << "\t 0 - Back." << endl;
+	cout << "Choose: " << endl;
+	cout << "\t 1 - Search for something new" << endl;
+	cout << "\t 2 - Remove viewed film" << endl;
+	cout << "\t 3 - Display watch list" << endl;
+	cout << "\t 4 - Save watch list" << endl;
+	cout << "\t 5 - Open watch list" << endl;
+	cout << "\t 0 - Return to main menu" << endl;
 }
 
 void UI::addMovieToRepo()
@@ -94,6 +95,27 @@ void UI::removeMovieFromRepo()
 	}
 }
 
+void UI::updateMovieFromRepo()
+{
+	cout << "Enter the title: ";
+	std::string title;
+	getline(cin, title);
+	cout << "Enter the genre: ";
+	std::string genre;
+	getline(cin, genre);
+	cout << "Enter the year: ";
+	int year;
+	cin >> year;
+	try
+	{
+		this->ctrl.updateMovieFromRepository(title, genre, year);
+	}
+	catch (RepositoryException& e)
+	{
+		cout << e.what() << endl;
+	}
+}
+
 void UI::displayAllMoviesRepo()
 {
 	vector<Film> movielist = this->ctrl.getRepo().get_movies();
@@ -131,14 +153,6 @@ void UI::addMovieToWatchlist()
 	}
 }
 
-void UI::addAllMoviesByGenreToWatchlist()
-{
-	cout << "Enter the genre: ";
-	std::string genre;
-	getline(cin, genre);
-
-	this->ctrl.addAllMoviesByGenreToWatchlist(genre);
-}
 
 void UI::saveWatchlistToFile()
 {
@@ -162,6 +176,30 @@ void UI::saveWatchlistToFile()
 	}
 }
 
+void UI::removeMovieFromWatchlist()
+{
+	cout << "Enter the title: ";
+	std::string title;
+	getline(cin, title);
+	cout << "Enter the genre: ";
+	std::string genre;
+	getline(cin, genre);
+	cout << "Enter the year: ";
+	int year;
+	cin >> year;
+
+	try
+	{
+		Film m = this->ctrl.getRepo().findByTitleandGenre(title, genre, year);
+		this->ctrl.removeMovieFromWatchlist(m);
+	}
+	catch (InexistentMovieException& e)
+	{
+		cout << e.what();
+		cout << "Nothing will be removed from the watch list." << endl;
+	}
+}
+
 void UI::run()
 {
 	while (true)
@@ -175,11 +213,11 @@ void UI::run()
 			break;
 
 		// repository management
-		if (command == 1)
+		if (command == 2)
 		{
 			while (true)
 			{
-				UI::printRepositoryMenu();
+				UI::printAdminMenu();
 				int commandRepo{ 0 };
 				cout << "Input the command: ";
 				cin >> commandRepo;
@@ -195,6 +233,8 @@ void UI::run()
 					this->removeMovieFromRepo();
 					break;
 				case 3:
+					this->updateMovieFromRepo();
+				case 4:
 					this->displayAllMoviesRepo();
 					break;
 				}
@@ -202,11 +242,11 @@ void UI::run()
 		}
 
 		// playlist management
-		if (command == 2)
+		if (command == 1)
 		{
 			while (true)
 			{
-				UI::printPlayListMenu();
+				UI::printUserMenu();
 				int commandPlaylist{ 0 };
 				cout << "Input the command: ";
 				cin >> commandPlaylist;
@@ -215,42 +255,37 @@ void UI::run()
 					break;
 				switch (commandPlaylist)
 				{
-				case 1:
-					this->addMovieToWatchlist();
+				case 1://search
+				{
+					this->view();
 					break;
+				}
 				case 2:
-					this->addAllMoviesByGenreToWatchlist();
+				{
+					if (this->ctrl.getWatchlist()->isEmpty())
+					{
+						cout << "Watch list is empty." << endl;
+						continue;
+					}
+					this->removeMovieFromWatchlist();
 					break;
+				}
 				case 3:
 				{
 					if (this->ctrl.getWatchlist()->isEmpty())
 					{
-						cout << "Nothing to watch, the watchlist is empty." << endl;
+						cout << "Nothing to display, the watch list is empty." << endl;
 						continue;
 					}
-					this->ctrl.startWatchlist();
-					Film m = this->ctrl.getWatchlist()->getCurrentMovie();
-					cout << "Now watching: " << m.get_titel() << endl;
+					this->ctrl.display();
 					break;
 				}
 				case 4:
 				{
-					if (this->ctrl.getWatchlist()->isEmpty())
-					{
-						cout << "Nothing to see, the watchlist is empty." << endl;
-						continue;
-					}
-					this->ctrl.nextMovieWatchlist();
-					Film m = this->ctrl.getWatchlist()->getCurrentMovie();
-					cout << "Now watching: " << m.get_titel() << endl;
-					break;
-				}
-				case 5:
-				{
 					this->saveWatchlistToFile();
 					break;
 				}
-				case 6:
+				case 5:
 				{
 					this->ctrl.openWatchlist();
 					break;

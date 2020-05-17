@@ -29,6 +29,12 @@ public:
 	void addMovie(const Film& m);
 
 	/*
+	Updates the movie with the given genre and title.
+	Throws: InexistenSongException - if there are no songs with the given artist and title.
+	*/
+	void updateMovie(const Film& m);
+
+	/*
 	Removes the song with the given artist and title.
 	Throws: InexistenSongException - if there are no songs with the given artist and title.
 	*/
@@ -39,7 +45,7 @@ public:
 	Input: artist, title - string
 	Output: the song that was found, or an "empty" song (all fields empty and duration 0), if nothing was found.
 	*/
-	Film findByTitleandGenre(const std::string& title, const std::string& genre) const;
+	Film findByTitleandGenre(const std::string& title, const std::string& genre, const int& year) const;
 
 	std::vector<Film> get_movies() const { return movies; }
 
