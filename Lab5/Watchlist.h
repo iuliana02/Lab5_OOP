@@ -28,6 +28,9 @@ public:
 	// Checks if the Watchlist is empty.
 	bool isEmpty();
 
+	//Displays all the watch list on the screen
+	void display();
+
 	//Removes given movie
 	void removeFromWatchlist(const Film& movie);
 

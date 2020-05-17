@@ -14,9 +14,9 @@ void Controller::addMovieToRepository(const std::string& title, const std::strin
 	this->repo.addMovie(m);
 }
 
-void Controller::removeMovieFromRepository(const std::string& title, const std::string& genre)
+void Controller::removeMovieFromRepository(const std::string& title, const std::string& genre, const int& year)
 {
-	Film m = this->repo.findByTitleandGenre(title, genre);
+	Film m = this->repo.findByTitleandGenre(title, genre, year);
 	this->repo.removeMovie(m);
 
 }
@@ -106,18 +106,18 @@ void Controller::removeMovieFromWatchlist(const Film& m)
 vector<Film> Controller::addgenre(const std::string& genre)
 {
 	vector<Film> v;
-	vector<Film> movielist = this->repo.getMovies();
+	vector<Film> movielist = this->repo.get_movies();
 	int nMovies = count_if(movielist.begin(), movielist.end(),
 		[genre](const Film& m)
 		{
-			return m.getGenre() == genre;
+			return m.get_genre() == genre;
 		});
 
 	vector<Film> moviesbyGenre(nMovies);
 	copy_if(movielist.begin(), movielist.end(), moviesbyGenre.begin(),
 		[genre](const Film& m)
 		{
-			return m.getGenre() == genre;
+			return m.get_genre() == genre;
 		});
 
 	for (auto m : moviesbyGenre)

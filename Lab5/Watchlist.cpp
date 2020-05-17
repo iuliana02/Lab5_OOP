@@ -42,6 +42,16 @@ bool Watchlist::isEmpty()
 	return this->movielist.size() == 0;
 }
 
+void Watchlist::display()
+{
+	if (this->movielist.size() == 0)
+		return;
+	for (auto i = movielist.begin(); i != movielist.end(); ++i)
+	{
+		i->toString();
+	}
+}
+
 void Watchlist::removeFromWatchlist(const Film& m)
 {
 	if (this->movielist.size() == 0)

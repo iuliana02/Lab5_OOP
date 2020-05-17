@@ -84,10 +84,13 @@ void UI::removeMovieFromRepo()
 	cout << "Enter the genre: ";
 	std::string genre;
 	getline(cin, genre);
+	cout << "Enter the year: ";
+	int year;
+	cin >> year;
 
 	try
 	{
-		this->ctrl.removeMovieFromRepository(title, genre);
+		this->ctrl.removeMovieFromRepository(title, genre, year);
 	}
 	catch (RepositoryException & e)
 	{
@@ -139,11 +142,14 @@ void UI::addMovieToWatchlist()
 	cout << "Enter the genre: ";
 	std::string genre;
 	getline(cin, genre);
+	cout << "Enter the year: ";
+	int year;
+	cin >> year;
 
 	// search for the movie in the repository
 	try
 	{
-		Film m = this->ctrl.getRepo().findByTitleandGenre(title, genre);
+		Film m = this->ctrl.getRepo().findByTitleandGenre(title, genre, year);
 		this->ctrl.addMovieToWatchlist(m);
 	}
 	catch (InexistentMovieException & e)
@@ -198,6 +204,53 @@ void UI::removeMovieFromWatchlist()
 		cout << e.what();
 		cout << "Nothing will be removed from the watch list." << endl;
 	}
+}
+
+void UI::view()
+{
+	std::string s;
+	cout << "Please enter a genre you are searching for: ";
+	getline(cin, s);
+	//getline(cin, s);
+	vector<Film> v;
+	if (s == "")
+	{
+		cout << "The string is empty!" << endl;
+		v = this->ctrl.getRepo().get_movies();
+	}
+	else
+	{
+		v = ctrl.addgenre(s);
+	}
+	int i = 0;
+	bool f = true;
+	while (i != v.size() and f)
+	{
+		v[i].toString();
+		cout << "Do you want to play it? (y/n) ";
+		cin >> s;
+		if (s == "y") {
+			v[i].runURL();
+		}
+		cout << "Do you want to add this film to your watchlist?(y/n) ";
+		cin >> s;
+		if (s == "y")
+		{
+			ctrl.addMovieToWatchlist(v[i]);
+			cout << "Film added succesfully\n";
+		}
+		cout << "Do you want to continue?(y/n) ";
+		cin >> s;
+		if (s == "y")
+		{
+			i++;
+		}
+		else
+		{
+			f = false;
+		}
+	}
+	if (f) cout << "You watched all our films\n";
 }
 
 void UI::run()

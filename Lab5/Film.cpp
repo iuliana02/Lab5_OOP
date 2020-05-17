@@ -19,7 +19,7 @@ Film::Film(const string &titel, const string &genre, const int &erscheinungsjahr
 	this->trailer = trailer;
 }
 
-string Film::toString()
+void Film::toString()
 {
 	string String;
 	String = "Titel: " + this->titel + "  Genre: " + this->genre + "  Erscheinungsjahr: " ;
@@ -28,7 +28,7 @@ string Film::toString()
 	string likes = to_string(this->likes);
 	String += "  Anzahl Likes: " + likes;
 	String += "\n\tTralier: " + this->trailer + "\n";
-	return String;
+	cout << String;
 }
 
 void Film::runURL()

@@ -29,7 +29,7 @@ public:
 	*/
 	void addMovieToRepository(const std::string& title, const std::string& genre, const int& year, const int& like, const std::string& trailer);
 
-	void removeMovieFromRepository(const std::string& title, const std::string& genre);
+	void removeMovieFromRepository(const std::string& title, const std::string& genre, const int &year);
 
 	void updateMovieFromRepository(const std::string& title, const std::string& genre, const int& year);
 
