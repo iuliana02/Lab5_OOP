@@ -1,6 +1,6 @@
 #include "Controller.h"
 #include <algorithm>
-#include "FileWatchlist.h"
+#include "fileWatchlist.h"
 #include "Exceptions.h"
 
 using namespace std;

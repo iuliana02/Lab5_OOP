@@ -8,7 +8,7 @@
 #include <sstream>
 
 
-Film::Film() {}
+Film::Film() : titel(""), genre(""), erscheinungsjahr(), likes(), trailer("") {}
 
 Film::Film(const string &titel, const string &genre, const int &erscheinungsjahr, const int& likes, const string &trailer)
 {
@@ -67,8 +67,8 @@ istream& operator>>(istream& is, Film& m)
 }
 
 //scriem in fisier
-ostream& operator<<(ostream& os, Film& m)
+ostream& operator<<(ostream& os, const Film& m)
 {
-	os << m.get_titel() << ", " << m.get_genre() << ", " << m.get_erscheinungsjahr() << ", " << m.get_likes() << ", " << m.get_trailer() << "\n";
+	os << m.titel << ", " << m.genre << ", " << m.erscheinungsjahr << ", " << m.likes << ", " << m.trailer << "\n";
 	return os;
 }

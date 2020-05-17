@@ -14,7 +14,7 @@ private:
 	string filename;
 
 	void read_file();
-	void write_file();
+	void writeToFile();
 
 public:
 

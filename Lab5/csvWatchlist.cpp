@@ -2,7 +2,7 @@
 #include <fstream>
 #include <Windows.h>
 #include "Exceptions.h"
-
+#include <iostream>
 using namespace std;
 
 void csvWatchlist::writeToFile()

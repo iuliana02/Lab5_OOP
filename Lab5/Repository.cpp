@@ -1,11 +1,8 @@
 #include "Repository.h"
-#include "Film.h"
 #include "Validation.h"
 #include <vector>
 #include <iostream>
-
 #include <fstream>
-#include <stdlib.h>
 #include "Exceptions.h"
 using namespace std;
 
@@ -206,7 +203,7 @@ void Repository::addMovie(const Film& m)
 	}
 	catch (InexistentMovieException& e) {}
 	this->movies.push_back(m);
-	this->write_file();
+	this->writeToFile();
 }
 
 void Repository::removeMovie(const Film& m)
@@ -215,7 +212,7 @@ void Repository::removeMovie(const Film& m)
 	if (it == this->movies.end())
 		throw InexistentMovieException{};
 	this->movies.erase(it);
-	this->write_file();
+	this->writeToFile();
 }
 
 void Repository::read_file()
@@ -232,7 +229,7 @@ void Repository::read_file()
 	file.close();
 }
 
-void Repository::write_file()
+void Repository::writeToFile()
 {
 	ofstream file(this->filename);
 	if (!file.is_open())

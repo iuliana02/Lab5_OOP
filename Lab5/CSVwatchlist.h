@@ -1,5 +1,6 @@
 #pragma once
 #include "fileWatchlist.h"
+#include "Repository.h"
 #include <string>
 
 class csvWatchlist : public FileWatchlist
