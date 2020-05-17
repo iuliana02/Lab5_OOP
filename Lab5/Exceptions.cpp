@@ -24,10 +24,10 @@ const char* RepositoryException::what()
 
 const char* DuplicateMovieException::what()
 {
-	return "There is another moviee with the same artist and title!";
+	return "There is another moviee with the same title and genre!";
 }
 
 const char* InexistentMovieException::what()
 {
-	return "There are no movies with the given artist and title!";
+	return "There are no movies with the given title and genre!";
 }

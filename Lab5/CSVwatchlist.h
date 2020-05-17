@@ -10,10 +10,11 @@ public:
 	Writes the Watchlist to file.
 	Throws: FileException - if it cannot write.
 	*/
+	//suprascrie functia writeToFile() din repo
 	void writeToFile() override;
 
 	/*
-	Displays the Watchlist using Microsoft Excel.
+	Displays the Watchlist.
 	*/
 	void displayWatchlist() const override;
 };

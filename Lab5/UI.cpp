@@ -116,9 +116,9 @@ void UI::addMovieToWatchlist()
 	getline(cin, title);
 	cout << "Enter the genre: ";
 	std::string genre;
-	getline(cin, genre);;
+	getline(cin, genre);
 
-	// search for the song in the repository
+	// search for the movie in the repository
 	try
 	{
 		Film m = this->ctrl.getRepo().findByTitleandGenre(title, genre);
@@ -237,7 +237,7 @@ void UI::run()
 				{
 					if (this->ctrl.getWatchlist()->isEmpty())
 					{
-						cout << "Nothing to play, the playlist is empty." << endl;
+						cout << "Nothing to see, the watchlist is empty." << endl;
 						continue;
 					}
 					this->ctrl.nextMovieWatchlist();

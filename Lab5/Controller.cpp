@@ -5,6 +5,8 @@
 
 using namespace std;
 
+//pt tot repo
+
 void Controller::addMovieToRepository(const std::string& title, const std::string& genre, const int& year, const int& like, const std::string& trailer)
 {
 	Film m{ title, genre, year, like, trailer };
@@ -18,6 +20,8 @@ void Controller::removeMovieFromRepository(const std::string& title, const std::
 	this->repo.removeMovie(m);
 
 }
+
+//pt Watchlist
 
 void Controller::addMovieToWatchlist( Film& movie)
 {
