@@ -18,8 +18,9 @@ void csvWatchlist::writeToFile()
 	f.close();
 }
 
+
 void csvWatchlist::displayWatchlist() const
 {
 	string aux = "\"" + this->filename + "\""; // if the path contains spaces, we must put it inside quotations
-	ShellExecuteA(NULL, NULL, "c:\\Program Files\\Microsoft Office\\Office15\\EXCEL.EXE", aux.c_str(), NULL, SW_SHOWMAXIMIZED);
+	ShellExecuteA(NULL, "open", aux.c_str(), "c:\\Program Files\\Microsoft Office\\Office15\\EXCEL.EXE", NULL, SW_SHOWMAXIMIZED);
 }

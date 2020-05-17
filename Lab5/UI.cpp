@@ -4,7 +4,7 @@
 #include <string>
 #include "Validation.h"
 #include <iostream>
-
+#include "html.h"
 using namespace std;
 
 void UI::printMenu()
@@ -163,7 +163,7 @@ void UI::addMovieToWatchlist()
 void UI::saveWatchlistToFile()
 {
 	std::string filename;
-	cout << "Input the file name (absolute path): ";
+	cout << "Input the file name (also the extension, for example: .txt, .csv, .html): ";
 	getline(cin, filename);
 
 	try
@@ -208,27 +208,19 @@ void UI::removeMovieFromWatchlist()
 
 void UI::view()
 {
-//	std::string s;
-//	cout << "Please enter a genre you are searching for: ";
-//	getline(cin, s);
-	//getline(cin, s);
-//	vector<Film> v;
-//	if (s == "")
-//	{
-//		cout << "The string is empty!" << endl;
-//		v = this->ctrl.getRepo().get_movies();
-//	}
-//	else
-//	{
+
+	std::string s;
+	cout << "\tAvailable movies: \n";
 	vector<Film> v;
 	v = this->ctrl.getRepo().get_movies();
 	for (int i = 0; i < v.size(); i++)
 		v[i].toString();
-//	}
+
 	int i = 0;
 	bool f = true;
 	while (i != v.size() and f)
 	{
+		cout << endl;
 		v[i].toString();
 		cout << "Do you want to play it? (y/n) ";
 		cin >> s;
@@ -297,7 +289,7 @@ void UI::run()
 			}
 		}
 
-		// playlist management
+		// watchlist management
 		if (command == 1)
 		{
 			while (true)
