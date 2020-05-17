@@ -107,7 +107,13 @@ vector<Film> Controller::addgenre(const std::string& genre)
 {
 	vector<Film> v;
 	vector<Film> movielist = this->repo.get_movies();
-	int nMovies = count_if(movielist.begin(), movielist.end(),
+	for (int i = 0; i < movielist.size(); i++)
+		if (movielist[i].get_genre() == genre)
+			v.push_back(movielist[i]);
+
+	return v;
+
+/*	int nMovies = count_if(movielist.begin(), movielist.end(),
 		[genre](const Film& m)
 		{
 			return m.get_genre() == genre;
@@ -122,5 +128,5 @@ vector<Film> Controller::addgenre(const std::string& genre)
 
 	for (auto m : moviesbyGenre)
 		v.push_back(m);
-	return v;
+	return v;*/
 }

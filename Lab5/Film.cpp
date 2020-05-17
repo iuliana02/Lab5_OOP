@@ -33,10 +33,13 @@ void Film::toString()
 
 void Film::runURL()
 {
-	string a = this->trailer;
-	wstring b(a.begin(), a.end());
-	LPCWSTR c = b.c_str();
-	ShellExecute(0, 0, b.c_str(), 0, 0, SW_SHOW);
+	ShellExecuteA(NULL, NULL, "chrome.exe", this->get_trailer().c_str(), NULL, SW_SHOWMAXIMIZED);
+
+
+//	string a = this->trailer;
+//	wstring b(a.begin(), a.end());
+//	LPCWSTR c = b.c_str();
+//	ShellExecute(0, 0, b.c_str(), 0, 0, SW_SHOW);
 }
 
 Film::~Film() {}

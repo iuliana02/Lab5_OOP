@@ -208,20 +208,23 @@ void UI::removeMovieFromWatchlist()
 
 void UI::view()
 {
-	std::string s;
-	cout << "Please enter a genre you are searching for: ";
-	getline(cin, s);
+//	std::string s;
+//	cout << "Please enter a genre you are searching for: ";
+//	getline(cin, s);
 	//getline(cin, s);
+//	vector<Film> v;
+//	if (s == "")
+//	{
+//		cout << "The string is empty!" << endl;
+//		v = this->ctrl.getRepo().get_movies();
+//	}
+//	else
+//	{
 	vector<Film> v;
-	if (s == "")
-	{
-		cout << "The string is empty!" << endl;
-		v = this->ctrl.getRepo().get_movies();
-	}
-	else
-	{
-		v = ctrl.addgenre(s);
-	}
+	v = this->ctrl.getRepo().get_movies();
+	for (int i = 0; i < v.size(); i++)
+		v[i].toString();
+//	}
 	int i = 0;
 	bool f = true;
 	while (i != v.size() and f)
