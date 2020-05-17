@@ -3,6 +3,7 @@
 #include "fileWatchlist.h"
 #include "Validation.h"
 #include <memory>
+#include <vector>
 
 class Controller
 {
@@ -30,6 +31,7 @@ public:
 
 	void removeMovieFromRepository(const std::string& title, const std::string& genre);
 
+	void updateMovieFromRepository(const std::string& title, const std::string& genre, const int& year);
 
 	/*
 	Adds a given song to the current Watchlist.
@@ -39,16 +41,25 @@ public:
 	void addMovieToWatchlist( Film& movie);
 
 	// Adds all the songs from the repository, that have the given artist, to the current Watchlist.
-	void addAllMoviesByGenreToWatchlist(const std::string& genre);
+	/*void addAllMoviesByGenreToWatchlist(const std::string& genre);*/
 
 	void startWatchlist();
 	void nextMovieWatchlist();
+	void display();
 
 	/*
 	Saves the Watchlist.
 	Throws: FileException - if the given file cannot be opened.
 	*/
 	void saveWatchlist(const std::string& filename);
+
+	/*
+	Removes given movie from watchlist
+	*/
+	void removeMovieFromWatchlist(const Film& movie);
+
+	std::vector<Film> addgenre(const std::string& genre);
+
 
 	/*
 	Opens the Watchlist, with an appropriate application.

@@ -41,3 +41,21 @@ bool Watchlist::isEmpty()
 {
 	return this->movielist.size() == 0;
 }
+
+void Watchlist::removeFromWatchlist(const Film& m)
+{
+	if (this->movielist.size() == 0)
+		return;
+	for (int i = 0; i != movielist.size(); ++i)
+	{
+		if (movielist.at(i) == m)
+		{
+			movielist.erase(movielist.begin() + i);
+		}
+	}
+}
+
+int Watchlist::size()
+{
+	return movielist.size();
+}

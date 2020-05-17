@@ -28,6 +28,12 @@ public:
 	// Checks if the Watchlist is empty.
 	bool isEmpty();
 
+	//Removes given movie
+	void removeFromWatchlist(const Film& movie);
+
+	//returns the size of the watch list
+	int size();
+
 	virtual ~Watchlist() {}
 };
 
