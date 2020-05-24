@@ -12,7 +12,6 @@
 #include "../Lab5/csvWatchlist.h"
 
 
-
 #include <string>
 #include <vector>
 using namespace std;
@@ -38,8 +37,8 @@ namespace UnitTestss
 		TEST_METHOD(TestRepository)
 		{
 			const string& filename = "file.txt";
-			auto repo = new Repository(filename);
-			vector <Film> films = repo->get_movies();
+			Repository repo = Repository(filename);
+			vector <Film> films = repo.get_movies();
 			Assert::AreEqual(films[0].get_titel(), string ("Titanic"));
 			Assert::AreEqual(films[0].get_genre(), string("Drama"));
 			Assert::AreEqual(films[0].get_erscheinungsjahr(), 1997);
@@ -48,10 +47,17 @@ namespace UnitTestss
 		}
 
 
-		TEST_METHOD(TestController)
+		/*TEST_METHOD(TestController)
 		{
+			const string& filename = "file.txt";
+			const Repository& repo =  Repository(filename);
+			FileWatchlist* fw;
+			MovieValidator validator;
+			Controller ctrl = Controller(repo, fw, validator);
 
-		}
+			vector<Film> v = ctrl.getRepo().get_movies();
+			Assert::AreEqual(int(v.size()),0);
+		}*/
 
 		TEST_METHOD(TestUI)
 		{
