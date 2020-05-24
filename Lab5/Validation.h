@@ -2,6 +2,31 @@
 #include <string>
 #include "Film.h"
 #include <vector>
+
+
+
+class MovieException
+{
+private:
+	std::vector<std::string> errors;
+
+public:
+	MovieException(std::vector<std::string> _errors);
+	std::vector<std::string> getErrors() const;
+};
+
+//alte validari
+class MovieValidator
+{
+public:
+	MovieValidator() {}
+	//valideaza caurile cand titlul, genul si link-ul nu sunt introduse corepsunzator
+	static void validate(Film& m);
+};
+
+
+
+
 //#include <iostream>
 //#include "Film.h"
 //#include "Repository.h"
@@ -53,20 +78,3 @@
 //	bool invalid_year(int year);
 //
 //};
-
-class MovieException
-{
-private:
-	std::vector<std::string> errors;
-
-public:
-	MovieException(std::vector<std::string> _errors);
-	std::vector<std::string> getErrors() const;
-};
-
-class MovieValidator
-{
-public:
-	MovieValidator() {}
-	static void validate(Film& m);
-};

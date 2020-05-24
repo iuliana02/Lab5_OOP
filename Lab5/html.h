@@ -16,11 +16,10 @@ public:
 	//suprascrie functia writeToFile() din repo
 	void writeToFile() override;
 
+	//deschide un fisier cu formatul .html si scrie in fisier continutul vectorului de filme cu formatul pt html
     void build_watchlist(vector <int> watchlist, Repository& repo);
 
-	/*
-	Displays the Watchlist.
-	*/
+	//Displays the Watchlist.
 	void displayWatchlist() const override;
 };
 
