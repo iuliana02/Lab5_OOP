@@ -168,6 +168,7 @@
     <ClInclude Include="Watchlist.h" />
   </ItemGroup>
   <ItemGroup>
+    <Text Include="file.txt" />
     <Text Include="movies.txt" />
   </ItemGroup>
   <ItemGroup>

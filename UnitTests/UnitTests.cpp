@@ -4,6 +4,14 @@
 #include "../Lab5/Repository.h"
 #include "../Lab5/Validation.h"
 #include "../Lab5/Watchlist.h"
+#include "../Lab5/Controller.h"
+#include "../Lab5/UI.h"
+#include "../Lab5/Watchlist.h"
+#include "../Lab5/Exceptions.h"
+#include "../Lab5/Others.h"
+#include "../Lab5/csvWatchlist.h"
+
+
 
 #include <string>
 #include <vector>
@@ -27,93 +35,74 @@ namespace UnitTestss
 			Assert::AreEqual(string("www"), film->get_trailer());
 		}
 
-	/*	TEST_METHOD(TestRepo)
+		TEST_METHOD(TestRepository)
 		{
-			auto repo = new Repository();
-			int i = 5;
-			int j = 0;
-			Assert::AreEqual(repo->Size(), i);
-			Assert::AreEqual(repo->Size(), j);
-
-			Film film = Film("a", "b", 2000, 150, "www");
-			repo->add_film(film);
-			int k = 6;
-			Assert::AreEqual(repo->Size(), k);
-
-			repo->delete_film_repo("a");
-			repo->delete_film_repo("Titanic");
-			int l = 4;
-			Assert::AreEqual(repo->Size(), l);
+			const string& filename = "file.txt";
+			auto repo = new Repository(filename);
+			vector <Film> films = repo->get_movies();
+			Assert::AreEqual(films[0].get_titel(), string ("Titanic"));
+			Assert::AreEqual(films[0].get_genre(), string("Drama"));
+			Assert::AreEqual(films[0].get_erscheinungsjahr(), 1997);
+			Assert::AreEqual(films[0].get_likes(), 1000);
+			Assert::AreEqual(films[0].get_trailer(), string("https://www.youtube.com/watch?v=kVrqfYjkTdQ"));
 		}
 
-		/*TEST_METHOD(TestModify)
+
+		TEST_METHOD(TestController)
 		{
-			auto repo = new Repository();
-			Assert::AreEqual(repo->movies[0].get_titel(), string("Titanic"));
-			Assert::AreEqual(repo->movies[0].get_genre(), string("Drama"));
-			Assert::AreEqual(repo->movies[0].get_erscheinungsjahr(), 1997);
 
-			repo->update_film("Titanic", "nou", 2005, 1234, "https.www.trailer_titanic");
+		}
 
-			Assert::AreEqual(repo->movies[0].get_genre(), string("nou"));
-			Assert::AreEqual(repo->movies[0].get_erscheinungsjahr(), 2005);
-
-			Film f1 = Film("Titanic", "Drama", 1997, 1000, "https://www.youtube.com/watch?v=kVrqfYjkTdQ");
-			Assert::AreEqual(repo->movies[0].get_likes(), 1234);
-			repo->update_likes(f1, 2050);
-			Assert::AreEqual(repo->movies[0].get_likes(), 2050);
-
-			vector<Film> aux = repo->nach_genre_anzeigen("Horror");
-			Assert::AreEqual(aux.size(), size_t (1));
-		}*/
-
-		/*TEST_METHOD(TestValidation)
+		TEST_METHOD(TestUI)
 		{
-			Validation v;
-			Repository repoo;
 
-			Film f1 = Film("Titanic", "Drama", 1997, 1000, "https://www.youtube.com/watch?v=kVrqfYjkTdQ");
-			repoo.add_film(f1);
+		}
 
-			Film f2 = Film("The Pianist", "Drama", 2002, 890, "https://www.youtube.com/watch?v=BFwGqLa_oAo");
-			repoo.add_film(f2);
+		TEST_METHOD(TestWatchlist)
+		{
+			auto wlist = new Watchlist();
+			Assert::AreEqual(wlist->current, 0);
+			Assert::AreEqual(wlist->isEmpty(), true);
 
-			Film f3;
-			f3.set_titel("Focus");
-			f3.set_genre("Comedie");
-			f3.set_erscheinungsjahr(2015);
-			f3.set_likes(1277);
-			f3.set_trailer("https://www.youtube.com/watch?v=MxCRgtdAuBo");
-			repoo.add_film(f3);
+			Film f = Film("a", "b", 1, 2, "https.m");
+			wlist->add(f);
+			Assert::AreEqual(wlist->size(), 1);
 
-			Film f4;
-			f4.set_titel("The longest ride");
-			f4.set_genre("Romance");
-			f4.set_erscheinungsjahr(2015);
-			f4.set_likes(1600);
-			f4.set_trailer("https://www.youtube.com/watch?v=FUS_Q7FsfqU");
-			repoo.add_film(f4);
+			Film f2 = wlist->getCurrentMovie();
+			Assert::AreEqual(f2.get_titel(), string("a"));
+			Assert::AreEqual(f2.get_genre(), string("b"));
+			Assert::AreEqual(f2.get_erscheinungsjahr(), 1);
+			Assert::AreEqual(f2.get_likes(), 2);
+			Assert::AreEqual(f2.get_trailer(), string("https.m"));
 
-			Film f5;
-			f5.set_titel("Bird Box");
-			f5.set_genre("Horror");
-			f5.set_erscheinungsjahr(2018);
-			f5.set_likes(2055);
-			f5.set_trailer("https://www.youtube.com/watch?v=o2AsIXSh2xo");
-			repoo.add_film(f5);
+			Assert::AreEqual(wlist->isEmpty(),false);
 
-			bool actual = v.validate_string("string");
-			bool expected = true;
-			Assert::AreEqual(actual, expected);
+			Film f3= Film("aa", "bb", 11, 22, "https.mm");
+			wlist->add(f3);
+			Assert::AreEqual(wlist->size(), 2);
 
-			bool actual2 = v.validate_string("abc12");
-			bool expected2 = false;
-			Assert::AreEqual(actual, expected);
+		}
 
-			bool actual3 = v.validate_int("1234");
-			bool expected3 = true;
-			Assert::AreEqual(actual3, expected3);
+		TEST_METHOD(TestOthers)
+		{
+			const string& s = "  unu doi ";
+			const string& r = "unu doi";
+			Assert::AreEqual(trim(s), r);
+		}
 
-		}*/
+		TEST_METHOD(TestCsvWatchlist)
+		{
+			auto csv = new csvWatchlist();
+		}
+
+		TEST_METHOD(TestExceptions)
+		{
+			const string& msg = "mesaj";
+			auto fileEx = FileException(msg);
+			const char* ms = "mesaj";
+			Assert::AreEqual(fileEx.what(), ms);
+		}
+			
+
 	};
 }

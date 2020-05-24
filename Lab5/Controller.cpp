@@ -113,20 +113,4 @@ vector<Film> Controller::addgenre(const std::string& genre)
 
 	return v;
 
-/*	int nMovies = count_if(movielist.begin(), movielist.end(),
-		[genre](const Film& m)
-		{
-			return m.get_genre() == genre;
-		});
-
-	vector<Film> moviesbyGenre(nMovies);
-	copy_if(movielist.begin(), movielist.end(), moviesbyGenre.begin(),
-		[genre](const Film& m)
-		{
-			return m.get_genre() == genre;
-		});
-
-	for (auto m : moviesbyGenre)
-		v.push_back(m);
-	return v;*/
 }

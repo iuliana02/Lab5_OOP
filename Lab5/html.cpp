@@ -31,6 +31,7 @@ void HTMLBuilder::build_watchlist(vector <int> watchlist, Repository& repo)
     for (int i = 0; i < movielist.size(); i++) {
         Film m = movielist[i];
         fin << "</tr>\n<tr>\n<td>" << m.get_titel() << "</td>\n<td>" << m.get_genre() << "</td>\n<td>" << m.get_erscheinungsjahr() << "</td>\n<td>" << m.get_likes() << "</td>\n<td><a href = '" << m.get_trailer() << "'>Link</a></td>\n";
+        fin << endl;
     }
     fin << "</tr>\n</table>\n</body>\n</html>";
     //fin.close();

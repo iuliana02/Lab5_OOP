@@ -8,9 +8,9 @@ class Watchlist
 protected:
 	std::vector<Film> movielist;
 	//iterator pentru watchlist
-	int current;
 
 public:
+	int current;
 	Watchlist();
 
 	// Adds a movie to the Watchlist.
